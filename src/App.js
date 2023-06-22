@@ -1,23 +1,21 @@
-import logo from './logo.svg';
 import './App.css';
+// import of libraries
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
+
+// import of components
+import { RedButton, BlueButton, TempButton } from './components/TempButton';
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <RedButton >Ok</RedButton>
+      <BlueButton >Stop</BlueButton>
+      <TempButton colorClass="btn-info">Temp</TempButton>
+      <TempButton color="rgb(255, 255, 255)">Temp</TempButton>
+      {/* Tempbutton with color yellow in rgb */}
+      <TempButton color="rgb(255, 255, 0)">Temp</TempButton>
     </div>
   );
 }
