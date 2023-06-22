@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 const getTextColor = (bgcolor) => {
   if (!bgcolor) return 'white';
   const rgb = bgcolor.substring(4, bgcolor.length - 1)
