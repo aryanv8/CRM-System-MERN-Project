@@ -8,6 +8,7 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
 
 // import of components
+import Navbar from "./components/Navbar";
 import {
   RedButton,
   BlueButton,
@@ -15,11 +16,10 @@ import {
   RedOutlineButton,
   WhiteOutlineButton,
 } from "./components/TempButton";
-import Navbar from "./components/Navbar";
 
 function App() {
   return (
-    <div className="App" style={{height: '200vh'}}>
+    <div className="App" style={{ height: "200vh" }}>
       <Router>
         <Navbar />
 
@@ -40,7 +40,6 @@ function App() {
       {/* RedOutlineButton with text Red Outline Button */}
       <RedOutlineButton>Red Outline Button</RedOutlineButton>
       <WhiteOutlineButton>White Outline Button</WhiteOutlineButton>
-      <p>This is paragraph</p>
     </div>
   );
 }
