@@ -16,6 +16,7 @@ import {
   RedOutlineButton,
   WhiteOutlineButton,
 } from "./components/TempButton";
+
 // import of pages
 import Contact from './pages/Contact';
 
@@ -31,7 +32,7 @@ function App() {
           <Route path='/'  />
           <Route path='/projects'  />
           <Route path='/skills'  />
-          <Route path='/contact' />
+          <Route path='/contact' element={<Contact />}/>
         </Routes>
       </Router>
 
