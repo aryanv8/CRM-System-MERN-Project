@@ -9,20 +9,23 @@ import {HashRouter as Router, Routes, Route} from "react-router-dom";
 import { RedButton, BlueButton, TempButton, RedOutlineButton, WhiteOutlineButton } from './components/TempButton';
 import Navbar from './components/Navbar';
 
+// import of pages
+import Contact from './pages/Contact';
 
 function App() {
   return (
     <div className="App">
-
-<Router>
+      
+      <Router>
         
         <Navbar />
         
         <Routes>
           <Route path='/'  />
-          <Route path='/projects'  />
-          <Route path='/skills'  />
-          <Route path='/contact' />
+          <Route path='/about'  />
+          <Route path='/contact' element={<Contact />}/>
+          <Route path='/login'  />
+          <Route path='/signup' />
         </Routes>
 
       </Router>

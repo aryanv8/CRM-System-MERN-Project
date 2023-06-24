@@ -3,12 +3,11 @@ import { Link, useLocation } from 'react-router-dom';
 
 function Navbar() {
 
-  const [expandNavbar,setExpandNavbar] = useState(false);
+  const [expandNavbar, setExpandNavbar] = useState(false);
   const location = useLocation();
-
   useEffect(()=>{
-    setExpandNavbar(false);
-  },[location])
+      setExpandNavbar(false);
+  }, [location])
     
   return (
     <div class="navbar navbar-dark bg-dark navbar-expand-md py-3 px-3" id={expandNavbar ? "open" : "close"}>
@@ -22,8 +21,8 @@ function Navbar() {
 
         <div class="navbar-collapse collapse mr-0 " id="navbar" style={{justifyContent: 'flex-end'}}>
             <div className='navbar-nav'>
-              <Link to='/' className='nav-link mx-3'>Home</Link>
-              <Link to='/Projects' className='nav-link mx-3'>Projects</Link>
+              <Link to='/about' className='nav-link mx-3'>About</Link>
+              <Link to='/contact' className='nav-link mx-3'>Contact</Link>
               <Link to='/login' className=' nav-link mx-3'>Login</Link> 
               <Link to='/signup' className='nav-link mx-3'>Sign-Up</Link> 
             </div>
