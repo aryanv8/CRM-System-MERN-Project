@@ -3,6 +3,7 @@ this function is used to determine the color of the text in the button
 based on the background color of the button
 if the background color is light, the text color will be black
 if the background color is dark, the text color will be white
+* @param {String} bgcolor "the background color of the button in rgb format"
 */
 const getTextColor = (bgcolor) => {
   if (!bgcolor) return "white";
@@ -20,7 +21,8 @@ const getTextColor = (bgcolor) => {
  * This is a temporary button component
  * It is used to create buttons with different colors
  * Either colorClass or color must be provided
- * @param {{colorClass:String, color: String,children: any}} colorClass "bootstarp color class name such as btn-primary, btn-danger, btn-success"
+ * @param {{colorClass:String, color: String,children: any}} colorClass "bootstarp color class name 
+ * such as `btn-primary`, `btn-danger`, `btn-success`"
  * @param children "the text inside the button"
  * @param color "the color of the button in rgb format"
  * @returns {JSX.Element}
@@ -101,4 +103,4 @@ export const WhiteOutlineButton = (props) => {
   return (
     <TempButton colorClass="btn-outline-light">{props.children}</TempButton>
   );
-}
+};
