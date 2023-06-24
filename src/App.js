@@ -13,13 +13,14 @@ function App() {
     <div className="App">
       <RedButton >Ok</RedButton>
       <BlueButton >Stop</BlueButton>
-      <TempButton colorClass="btn-info">Temp</TempButton>
+      <TempButton colorClass="btn-info">Temp Info</TempButton>
       <TempButton color="rgb(255, 255, 255)">Temp</TempButton>
       {/* Tempbutton with color yellow in rgb */}
       <TempButton color="rgb(255, 255, 0)">Temp</TempButton>
       {/* RedOutlineButton with text Red Outline Button */}
       <RedOutlineButton>Red Outline Button</RedOutlineButton>
       <WhiteOutlineButton>White Outline Button</WhiteOutlineButton>
+      <p>This is paragraph</p>
     </div>
   );
 }
