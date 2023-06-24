@@ -1,10 +1,11 @@
 import './App.css';
+
 // import of libraries
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 
 // import of components
-import { RedButton, BlueButton, TempButton } from './components/TempButton';
+import { RedButton, BlueButton, TempButton, RedOutlineButton, WhiteOutlineButton } from './components/TempButton';
 
 
 function App() {
@@ -16,6 +17,9 @@ function App() {
       <TempButton color="rgb(255, 255, 255)">Temp</TempButton>
       {/* Tempbutton with color yellow in rgb */}
       <TempButton color="rgb(255, 255, 0)">Temp</TempButton>
+      {/* RedOutlineButton with text Red Outline Button */}
+      <RedOutlineButton>Red Outline Button</RedOutlineButton>
+      <WhiteOutlineButton>White Outline Button</WhiteOutlineButton>
     </div>
   );
 }
