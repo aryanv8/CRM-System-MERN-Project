@@ -52,7 +52,9 @@ function Contact() {
   };
 
   return (
-    <div className='container-fluid contactbg'>
+    <div className='container-fluid contactbg justify-content-center align-items-center'
+      style={{height: '95vh'}}
+    >
         <div className='contact bg-dark'>
             <form className=' mx-auto' ref={form} onSubmit={sendEmail} method='post' id='Form'>
                 <h1 className='my-4 text-warning'>Contact</h1>
