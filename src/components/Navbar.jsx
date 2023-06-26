@@ -13,7 +13,7 @@ function Navbar() {
     <div
       class="navbar navbar-dark navbar-expand-md py-3 px-3 sticky-top"
       id={expandNavbar ? "open" : "close"}
-      style={{backgroundColor: "rgba(0, 0, 0, 0.5)"}}
+      style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}
     >
       <Link to="/" className="navbar-brand h1">
         {" "}
@@ -35,15 +35,30 @@ function Navbar() {
         <span class="navbar-toggler-icon"></span>
       </button>
 
-        <div class="navbar-collapse collapse mr-0 " id="navbar" style={{justifyContent: 'flex-end'}}>
-            <div className='navbar-nav'>
-              <Link to='/about' className='nav-link mx-3'>About</Link>
-              <Link to='/contact' className='nav-link mx-3'>Contact</Link>
-              <Link to='/login' className=' nav-link mx-3'>Login</Link> 
-              <Link to='/signup' className='nav-link mx-3'>Sign-Up</Link> 
-            </div>
+      <div
+        class="navbar-collapse collapse mr-0 "
+        id="navbar"
+        style={{ justifyContent: "flex-end" }}
+      >
+        <div className="navbar-nav">
+          <Link to="/about" className="nav-link mx-3">
+            About
+          </Link>
+          <Link to="/contact" className="nav-link mx-3">
+            Contact
+          </Link>
+          <Link to="/feedback" className="nav-link mx-3">
+            Feedback
+          </Link>
+          <Link to="/login" className=" nav-link mx-3">
+            Login
+          </Link>
+          <Link to="/signup" className="nav-link mx-3">
+            Sign-Up
+          </Link>
         </div>
       </div>
+    </div>
   );
 }
 
