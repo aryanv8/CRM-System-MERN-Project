@@ -19,20 +19,20 @@ import {
 
 // import of pages
 import Contact from './pages/Contact';
+import Signup from "./pages/Signup";
 
 function App() {
   return (
     <div className="App">
 
-<Router>
+    <Router>
         
         <Navbar />
 
         <Routes>
           <Route path='/'  />
-          <Route path='/projects'  />
-          <Route path='/skills'  />
           <Route path='/contact' element={<Contact />}/>
+          <Route path='/signup'  element={<Signup />} />
         </Routes>
       </Router>
 
@@ -40,8 +40,10 @@ function App() {
       <BlueButton>Stop</BlueButton>
       <TempButton colorClass="btn-info">Temp Info</TempButton>
       <TempButton color="rgb(255, 255, 255)">Temp</TempButton>
+
       {/* Tempbutton with color yellow in rgb */}
       <TempButton color="rgb(255, 255, 0)">Temp</TempButton>
+      
       {/* RedOutlineButton with text Red Outline Button */}
       <RedOutlineButton>Red Outline Button</RedOutlineButton>
       <WhiteOutlineButton>White Outline Button</WhiteOutlineButton>

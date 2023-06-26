@@ -59,7 +59,7 @@ function Contact() {
                 <input type='text' className='form-control my-3' placeholder='Your Name' name='from_name' required></input>
                 <input type='email' className='form-control my-3' placeholder='Your Email' name='from_email' required></input>
                 <textarea className='form-control my-3 mx-auto' rows='5' placeholder='Enter your message' name='message' required></textarea>
-                <button className='btn btn-warning' value='submit' type='submit' >Send <i class="fa-solid fa-paper-plane"></i></button>
+                <button className='btn btn-warning mt-3' value='submit' type='submit' >Send <i class="fa-solid fa-paper-plane"></i></button>
             </form>
             <ToastContainer />
         </div>
