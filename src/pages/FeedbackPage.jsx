@@ -124,6 +124,40 @@ function FeedbackPage() {
     setRatingOverallError("");
   };
 
+
+  const ratings = {
+    Experience: {
+      id: "ratingExperience",
+      error: ratingExperienceError,
+      onClick: ratingExperienceOnChange,
+    },
+    Durability: {
+      id: "ratingDurability",
+      error: ratingDurabilityError,
+      onClick: ratingDurabilityOnChange,
+    },
+    "Value for Money": {
+      id: "ratingVFM",
+      error: ratingVFMError,
+      onClick: ratingVFMOnChange,
+    },
+    Efficiency: {
+      id: "ratingEfficiency",
+      error: ratingEfficiencyError,
+      onClick: ratingEfficiencyOnChange,
+    },
+    "Ease of Use": {
+      id: "ratingEaseOfUse",
+      error: ratingEaseOfUseError,
+      onClick: ratingEaseOfUseOnChange,
+    },
+    "Overall Rating": {
+      id: "ratingOverall",
+      error: ratingOverallError,
+      onClick: ratingOverallOnChange,
+    },
+  };
+
   return (
     <div
       className="container-fluid justify-content-center align-items-center d-flex"
@@ -134,7 +168,7 @@ function FeedbackPage() {
           Provide Feedback
         </h1>
 
-        <div className="container-fluid" style={{maxWidth:'800px'}}>
+        <div className="container-fluid" style={{ maxWidth: "800px" }}>
           <form className="w-100" noValidate onSubmit={handleSubmit}>
             {/* Name */}
             <div className="row my-4">
@@ -197,244 +231,47 @@ function FeedbackPage() {
               </div>
             </div>
 
-            {/* Experience Ratings */}
-            <div className="row my-4">
-              <div className="col-md-2 col-12 text-start">
-                <label htmlFor="ratingExperience" className="col-form-label">
-                  Experience
-                </label>
-              </div>
-              <div className="col-md-10 col-12">
-                <div className="align-items-center row h-100 mx-2">
-                  {[1, 2, 3, 4, 5].map((value) => (
-                    <div
-                      className="form-check form-check-inline col-1"
-                      key={value}
-                    >
-                      <input
-                        className="form-check-input"
-                        type="radio"
-                        name="ratingExperience"
-                        id={`ratingExperience${value}`}
-                        value={value}
-                        onClick={ratingExperienceOnChange}
-                      />
-                      <label
-                        className="form-check-label"
-                        htmlFor={`ratingExperience${value}`}
-                      >
-                        {value}
-                      </label>
+            <div>
+              {Object.entries(ratings).map(([title, rating]) => (
+                <div className="row my-4" key={title}>
+                  <div className="col-md-2 col-12 text-start">
+                    <label htmlFor={rating.id} className="col-form-label">
+                      {title}
+                    </label>
+                  </div>
+                  <div className="col-md-10 col-12">
+                    <div className="align-items-center row h-100 mx-2">
+                      {[1, 2, 3, 4, 5].map((value) => (
+                        <div
+                          className="form-check form-check-inline col-1"
+                          key={value}
+                        >
+                          <input
+                            className="form-check-input"
+                            type="radio"
+                            name={rating.id}
+                            id={`${rating.id}${value}`}
+                            value={value}
+                            onClick={rating.onClick}
+                          />
+                          <label
+                            className="form-check-label"
+                            htmlFor={`${rating.id}${value}`}
+                          >
+                            {value}
+                          </label>
+                        </div>
+                      ))}
                     </div>
-                  ))}
-                </div>
-                <div
-                  className="form-text text-end text-danger"
-                  style={{ display: nameError ? "block" : "none" }}
-                >
-                  {ratingExperienceError}
-                </div>
-              </div>
-            </div>
-
-            {/* Durability Ratings */}
-            <div className="row my-4">
-              <div className="col-md-2 col-12 text-start">
-                <label htmlFor="ratingDurability" className="col-form-label">
-                  Durability
-                </label>
-              </div>
-              <div className="col-md-10 col-12">
-                <div className="align-items-center row h-100 mx-2">
-                  {[1, 2, 3, 4, 5].map((value) => (
                     <div
-                      className="form-check form-check-inline col-1"
-                      key={value}
+                      className="form-text text-end text-danger"
+                      style={{ display: rating.error ? "block" : "none" }}
                     >
-                      <input
-                        className="form-check-input"
-                        type="radio"
-                        name="ratingDurability"
-                        id={`ratingDurability${value}`}
-                        value={value}
-                        onClick={ratingDurabilityOnChange}
-                      />
-                      <label
-                        className="form-check-label"
-                        htmlFor={`ratingDurability${value}`}
-                      >
-                        {value}
-                      </label>
+                      {rating.error}
                     </div>
-                  ))}
+                  </div>
                 </div>
-                <div
-                  className="form-text text-end text-danger"
-                  style={{ display: ratingDurabilityError ? "block" : "none" }}
-                >
-                  {ratingDurabilityError}
-                </div>
-              </div>
-            </div>
-
-            {/* Value for Money Ratings */}
-            <div className="row my-4">
-              <div className="col-md-2 col-12 text-start">
-                <label htmlFor="ratingVFM" className="col-form-label">
-                  Value for Money
-                </label>
-              </div>
-              <div className="col-md-10 col-12">
-                <div className="align-items-center row h-100 mx-2">
-                  {[1, 2, 3, 4, 5].map((value) => (
-                    <div
-                      className="form-check form-check-inline col-1"
-                      key={value}
-                    >
-                      <input
-                        className="form-check-input"
-                        type="radio"
-                        name="ratingVFM"
-                        id={`ratingVFM${value}`}
-                        value={value}
-                        onClick={ratingVFMOnChange}
-                      />
-                      <label
-                        className="form-check-label"
-                        htmlFor={`ratingVFM${value}`}
-                      >
-                        {value}
-                      </label>
-                    </div>
-                  ))}
-                </div>
-                <div
-                  className="form-text text-end text-danger"
-                  style={{ display: ratingVFMError ? "block" : "none" }}
-                >
-                  {ratingVFMError}
-                </div>
-              </div>
-            </div>
-
-            {/* Efficieny Rating */}
-            <div className="row my-4">
-              <div className="col-md-2 col-12 text-start">
-                <label htmlFor="ratingEfficiency" className="col-form-label">
-                  Efficiency
-                </label>
-              </div>
-              <div className="col-md-10 col-12">
-                <div className="align-items-center row h-100 mx-2">
-                  {[1, 2, 3, 4, 5].map((value) => (
-                    <div
-                      className="form-check form-check-inline col-1"
-                      key={value}
-                    >
-                      <input
-                        className="form-check-input"
-                        type="radio"
-                        name="ratingEfficiency"
-                        id={`ratingEfficiency${value}`}
-                        value={value}
-                        onClick={ratingEfficiencyOnChange}
-                      />
-                      <label
-                        className="form-check-label"
-                        htmlFor={`ratingEfficiency${value}`}
-                      >
-                        {value}
-                      </label>
-                    </div>
-                  ))}
-                </div>
-                <div
-                  className="form-text text-end text-danger"
-                  style={{ display: ratingEfficiencyError ? "block" : "none" }}
-                >
-                  {ratingEfficiencyError}
-                </div>
-              </div>
-            </div>
-
-            {/* Ease of Use Rating */}
-            <div className="row my-4">
-              <div className="col-md-2 col-12 text-start">
-                <label htmlFor="ratingEaseOfUse" className="col-form-label">
-                  Ease of Use
-                </label>
-              </div>
-              <div className="col-md-10 col-12">
-                <div className="align-items-center row h-100 mx-2">
-                  {[1, 2, 3, 4, 5].map((value) => (
-                    <div
-                      className="form-check form-check-inline col-1"
-                      key={value}
-                    >
-                      <input
-                        className="form-check-input"
-                        type="radio"
-                        name="ratingEaseOfUse"
-                        id={`ratingEaseOfUse${value}`}
-                        value={value}
-                        onClick={ratingEaseOfUseOnChange}
-                      />
-                      <label
-                        className="form-check-label"
-                        htmlFor={`ratingEaseOfUse${value}`}
-                      >
-                        {value}
-                      </label>
-                    </div>
-                  ))}
-                </div>
-                <div
-                  className="form-text text-end text-danger"
-                  style={{ display: ratingEaseOfUseError ? "block" : "none" }}
-                >
-                  {ratingEaseOfUseError}
-                </div>
-              </div>
-            </div>
-
-            {/* Overall Rating */}
-            <div className="row my-4">
-              <div className="col-md-2 col-12 text-start">
-                <label htmlFor="ratingOverall" className="col-form-label">
-                  Overall Rating
-                </label>
-              </div>
-              <div className="col-md-10 col-12">
-                <div className="align-items-center row h-100 mx-2">
-                  {[1, 2, 3, 4, 5].map((value) => (
-                    <div
-                      className="form-check form-check-inline col-1"
-                      key={value}
-                    >
-                      <input
-                        className="form-check-input"
-                        type="radio"
-                        name="ratingOverall"
-                        id={`ratingOverall${value}`}
-                        value={value}
-                        onClick={ratingOverallOnChange}
-                      />
-                      <label
-                        className="form-check-label"
-                        htmlFor={`ratingOverall${value}`}
-                      >
-                        {value}
-                      </label>
-                    </div>
-                  ))}
-                </div>
-                <div
-                  className="form-text text-end text-danger"
-                  style={{ display: ratingOverallError ? "block" : "none" }}
-                >
-                  {ratingOverallError}
-                </div>
-              </div>
+              ))}
             </div>
 
             {/* Text area for Suggestion/Complaint */}
@@ -454,7 +291,7 @@ function FeedbackPage() {
                 ></textarea>
               </div>
             </div>
-
+            
 
             <div className="row my-5">
               <div className="col-md-2 col-12"></div>
