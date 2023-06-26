@@ -1,11 +1,12 @@
 .signup{
     color: white;
-    background-color: aliceblue;
+    /* background-color: aliceblue; */
     padding: 40px;
     font-size: large;
 }
 .signup form{
     border-radius: 10px;
+    border: 3px solid white;
     width: 60%;
     padding: 20px;
 }
