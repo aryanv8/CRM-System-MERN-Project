@@ -9,6 +9,7 @@ import { HashRouter as Router, Routes, Route } from "react-router-dom";
 
 // import of components
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 // import of pages
 import Contact from './pages/Contact';
@@ -16,11 +17,12 @@ import FeedbackPage from "./pages/FeedbackPage";
 import Signup from "./pages/Signup";
 
 
+
 function App() {
   return (
     <div className="App">
-
-<Router>
+      
+      <Router>
         
         <Navbar />
 
@@ -32,8 +34,10 @@ function App() {
           <Route path='/login' />
           <Route path='/signup' element={<Signup />} />
         </Routes>
+        
       </Router>
 
+      <Footer />
       {/* <RedButton>Ok</RedButton>
       <BlueButton>Stop</BlueButton>
       <TempButton colorClass="btn-info">Temp Info</TempButton>

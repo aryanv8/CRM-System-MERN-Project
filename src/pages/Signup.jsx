@@ -16,7 +16,7 @@ function Signup() {
     }
 
   return (
-    <div className='container-fluid signup' >
+    <div className='container-fluid signup'>
         <form className='container bg-dark was-validated'>
             <h3 className='mt-10'>Registration Form</h3>
 
@@ -127,9 +127,8 @@ function Signup() {
                 {/* <span className="invalid-feedback float-end">Before Submit Accept it</span> */}
             </div>
 
-            <div className='my-10 '>
-                <button type='submit' className='btn btn-primary' value='Submit'>Submit</button>
-            </div>
+            <button type='submit' className='btn btn-outline-warning w-50 mt-4' value='Submit'>Submit</button>
+            
         </form>
     </div>
   )
