@@ -15,6 +15,7 @@ import Footer from "./components/Footer";
 import Contact from './pages/Contact';
 import FeedbackPage from "./pages/FeedbackPage";
 import Signup from "./pages/Signup";
+import UserProfilePage from "./pages/UserProfilePage";
 
 
 
@@ -33,6 +34,7 @@ function App() {
           <Route path='/feedback' element={<FeedbackPage />} />
           <Route path='/login' />
           <Route path='/signup' element={<Signup />} />
+          <Route path='/profile' element={<UserProfilePage/> } />
         </Routes>
         
       </Router>
