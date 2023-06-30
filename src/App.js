@@ -36,8 +36,6 @@ function App() {
           <Route path='/feedback' element={<FeedbackPage />} />
           <Route path='/login' element={<Login/>}/>
           <Route path='/signup' element={<Signup />} />
-          <Route path='/login' />
-          <Route path='/signup' element={<SignUp />} />
           <Route path='/profile' element={<UserProfilePage/> } />
 
           <Route path='/edit-user' element={<EditUser />}></Route>
