@@ -1,6 +1,7 @@
-.login{color: white;
+.login{
+    color: white;
     /* background-color: aliceblue; */
-    padding: 40px;
+    padding: 50px;
     font-size: large;}
 .login form{
     border-radius: 10px;
@@ -26,5 +27,6 @@
     }
     .login a{
         margin-left: 60%;
+        font-size: smaller;
     }
 }
