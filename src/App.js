@@ -15,12 +15,12 @@ import Footer from "./components/Footer";
 // import of pages
 import Contact from './pages/Contact';
 import FeedbackPage from "./pages/FeedbackPage";
-import SignUp from "./pages/SignUp";
+import Signup from "./pages/Signup";
 import UserProfilePage from "./pages/UserProfilePage";
 import EditUser from "./pages/EditUser";
 import UserLogin from "./pages/UserLogin";
 import AdminLogin from "./pages/AdminLogin";
-
+import Home from "./pages/Home";
 
 function App() {
   return (
@@ -36,7 +36,7 @@ function App() {
           <Route path='/contact' element={<Contact />}/>
           <Route path='/feedback' element={<FeedbackPage />} />
           <Route path='/login' element={<UserLogin />} />
-          <Route path='/signup' element={<SignUp />} />
+          <Route path='/signup' element={<Signup />} />
           <Route path='/profile' element={<UserProfilePage/> } />
 
           <Route path='/edit-user' element={<EditUser />} ></Route>
