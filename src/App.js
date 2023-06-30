@@ -19,7 +19,7 @@ import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import UserProfilePage from "./pages/UserProfilePage";
 import EditUser from "./pages/EditUser";
-
+import Home from "./pages/Home";
 
 function App() {
   return (
@@ -30,7 +30,7 @@ function App() {
         <Navbar />
 
         <Routes>
-          <Route path='/'  />
+          <Route path='/' element={<Home/>}/>
           <Route path='/about' />
           <Route path='/contact' element={<Contact />}/>
           <Route path='/feedback' element={<FeedbackPage />} />
