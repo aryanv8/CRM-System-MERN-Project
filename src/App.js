@@ -15,11 +15,12 @@ import Footer from "./components/Footer";
 // import of pages
 import Contact from './pages/Contact';
 import FeedbackPage from "./pages/FeedbackPage";
-import Signup from "./pages/Signup";
-import Login from "./pages/Login";
+import SignUp from "./pages/SignUp";
 import UserProfilePage from "./pages/UserProfilePage";
 import EditUser from "./pages/EditUser";
-import Home from "./pages/Home";
+import UserLogin from "./pages/UserLogin";
+import AdminLogin from "./pages/AdminLogin";
+
 
 function App() {
   return (
@@ -34,11 +35,12 @@ function App() {
           <Route path='/about' />
           <Route path='/contact' element={<Contact />}/>
           <Route path='/feedback' element={<FeedbackPage />} />
-          <Route path='/login' element={<Login/>}/>
-          <Route path='/signup' element={<Signup />} />
+          <Route path='/login' element={<UserLogin />} />
+          <Route path='/signup' element={<SignUp />} />
           <Route path='/profile' element={<UserProfilePage/> } />
 
-          <Route path='/edit-user' element={<EditUser />}></Route>
+          <Route path='/edit-user' element={<EditUser />} ></Route>
+          <Route path="/admin-login" element={<AdminLogin /> } ></Route>
         </Routes>
         
       </Router>
