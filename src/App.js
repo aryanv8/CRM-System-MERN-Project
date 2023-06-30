@@ -11,11 +11,14 @@ import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
+
 // import of pages
 import Contact from './pages/Contact';
 import FeedbackPage from "./pages/FeedbackPage";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
+import UserProfilePage from "./pages/UserProfilePage";
+import EditUser from "./pages/EditUser";
 
 
 function App() {
@@ -33,6 +36,11 @@ function App() {
           <Route path='/feedback' element={<FeedbackPage />} />
           <Route path='/login' element={<Login/>}/>
           <Route path='/signup' element={<Signup />} />
+          <Route path='/login' />
+          <Route path='/signup' element={<SignUp />} />
+          <Route path='/profile' element={<UserProfilePage/> } />
+
+          <Route path='/edit-user' element={<EditUser />}></Route>
         </Routes>
         
       </Router>

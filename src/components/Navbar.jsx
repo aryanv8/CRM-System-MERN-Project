@@ -56,6 +56,10 @@ function Navbar() {
           <Link to="/signup" className="nav-link mx-3">
             Sign-Up
           </Link>
+          {/* Link to /profile named Profile */}
+          <Link to="/profile" className="nav-link mx-3">
+            Profile
+          </Link>
         </div>
       </div>
     </div>
