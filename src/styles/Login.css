@@ -1,0 +1,30 @@
+.login{color: white;
+    /* background-color: aliceblue; */
+    padding: 40px;
+    font-size: large;}
+.login form{
+    border-radius: 10px;
+    border: 3px solid white;
+    width: 40%;
+    padding: 20px;
+}
+.login input{
+    /* background-color: whitesmoke; */
+    border: 2px solid ;
+}
+.login a{
+    margin-left: 70%;
+}
+@media only screen and (max-width: 800px) {
+    .login{
+        padding: 20px;
+    }
+
+    .login form{
+        width: 90%;
+        padding: 20px;
+    }
+    .login a{
+        margin-left: 60%;
+    }
+}

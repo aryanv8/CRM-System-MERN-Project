@@ -15,7 +15,7 @@ import Footer from "./components/Footer";
 import Contact from './pages/Contact';
 import FeedbackPage from "./pages/FeedbackPage";
 import Signup from "./pages/Signup";
-
+import Login from "./pages/Login";
 
 
 function App() {
@@ -31,7 +31,7 @@ function App() {
           <Route path='/about' />
           <Route path='/contact' element={<Contact />}/>
           <Route path='/feedback' element={<FeedbackPage />} />
-          <Route path='/login' />
+          <Route path='/login' element={<Login/>}/>
           <Route path='/signup' element={<Signup />} />
         </Routes>
         
