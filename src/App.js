@@ -15,7 +15,7 @@ import Footer from "./components/Footer";
 // import of pages
 import Contact from './pages/Contact';
 import FeedbackPage from "./pages/FeedbackPage";
-import Signup from "./pages/Signup";
+import Signup from "./pages/SignUp";
 import UserProfilePage from "./pages/UserProfilePage";
 import EditUser from "./pages/EditUser";
 import UserLogin from "./pages/UserLogin";
