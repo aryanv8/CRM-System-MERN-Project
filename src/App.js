@@ -10,7 +10,7 @@ import { HashRouter as Router, Routes, Route } from "react-router-dom";
 // import of components
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-
+import Forgotpwd from "./components/Forgotpwd";
 
 // import of pages
 import Contact from './pages/Contact';
@@ -41,6 +41,7 @@ function App() {
 
           <Route path='/edit-user' element={<EditUser />} ></Route>
           <Route path="/admin-login" element={<AdminLogin /> } ></Route>
+          <Route path="/forgotpwd" element={<Forgotpwd /> } ></Route>
         </Routes>
         
       </Router>

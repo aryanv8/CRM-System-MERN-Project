@@ -2,6 +2,7 @@ import React,{useState} from 'react';
 import { Link } from 'react-router-dom';
 import Login from '../components/Login';
 
+
 function UserLogin() {
   const [data, setData] = useState([]); //data=input field data
 
@@ -17,7 +18,7 @@ function UserLogin() {
     <div>
        <form onSubmit={handleSubmit}>
         <Login getState={getState} heading="User" 
-        forgetPassword = {<div className="ml-5 mt-3"><a href="#">Forgot Password</a></div>}
+        forgetPassword = {<div className="ml-5 mt-3"><Link to="/forgotpwd">Forgot Password</Link></div>}
         signUp = {<div className='ml-1'><Link to="/signup">New User</Link></div>}
         />
         </form>
