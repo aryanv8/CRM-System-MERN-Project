@@ -21,6 +21,8 @@ import EditUser from "./pages/EditUser";
 import UserLogin from "./pages/UserLogin";
 import AdminLogin from "./pages/AdminLogin";
 import Home from "./pages/Home";
+import About from "./pages/About";
+
 
 function App() {
   return (
@@ -32,7 +34,7 @@ function App() {
 
         <Routes>
           <Route path='/' element={<Home/>}/>
-          <Route path='/about' />
+          <Route path='/about'  element={<About />} />
           <Route path='/contact' element={<Contact />}/>
           <Route path='/feedback' element={<FeedbackPage />} />
           <Route path='/login' element={<UserLogin />} />
