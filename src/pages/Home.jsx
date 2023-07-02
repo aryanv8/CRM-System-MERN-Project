@@ -20,7 +20,7 @@ function Home(){
      <h2 class="text-uppercase">Solving customers problems very soon</h2>
     </div>
     <div class="col-6">
- <img class="img1 border-radius-rounded" src="https://img.freepik.com/free-vector/stock-market-analysis-with-chart_23-2148584739.jpg?size=626&ext=jpg&ga=GA1.2.1950086803.1687017148&semt=ais" alt="visualize"/>
+ <img class="img3 border-radius-rounded" src="https://img.freepik.com/free-vector/stock-market-analysis-with-chart_23-2148584739.jpg?size=626&ext=jpg&ga=GA1.2.1950086803.1687017148&semt=ais" alt="visualize"/>
  <h2 class="text-uppercase">Visualisation of Customers Information</h2>
     </div>
     <br/>

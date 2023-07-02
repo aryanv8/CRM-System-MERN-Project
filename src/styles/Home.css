@@ -7,6 +7,7 @@ height:1020px}
 .home h2{color:white;}
 .home h3{text-align: center;}
 .img1{width: 60%;border-radius: 24px;}
+.img3{width: 70%;border-radius: 24px;height:82%}
 @media only screen and (max-width: 800px) {
     .home{background-image:url('https://img.freepik.com/premium-photo/businessman-pressing-smiley-face-emoticon-virtual-touch-screen-user-give-rating-service-experience-online-application-customer-review-satisfaction-feedback-survey-concept_818293-8.jpg?w=826');
         background-repeat: no-repeat;

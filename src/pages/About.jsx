@@ -4,6 +4,7 @@ import "../styles/About.css";
 function About(){
     return(
         <div class="container-fluid">
+            <br/>
             <div class="row">
                 <div class="col-12">
             <img class="img2" src={pic} alt="crm" /></div></div>
