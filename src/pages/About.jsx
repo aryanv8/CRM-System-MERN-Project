@@ -3,8 +3,10 @@ import pic from "../images/About_page.png";
 import "../styles/About.css";
 function About(){
     return(
-        <div>
-            <img src={pic} alt="crm" />
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+            <img class="img2" src={pic} alt="crm" /></div></div>
             <div className='about-container'>
                 <h3>CRM Best services</h3><br/>
                 <p>A customer relationship management (CRM) solution helps you find new customers, 
