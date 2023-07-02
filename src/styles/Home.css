@@ -4,15 +4,17 @@ background-size:cover;
 background-attachment: fixed;
 height:1020px}
 .home h1{color:white;}
-.home h2{color:white;}
+.home h2{color:white;font-size:x-large;}
 .home h3{text-align: center;}
 .img1{width: 60%;border-radius: 24px;}
-.img3{width: 70%;border-radius: 24px;height:82%}
+.img3{width: 70%;border-radius: 24px;height:90%}
 @media only screen and (max-width: 800px) {
     .home{background-image:url('https://img.freepik.com/premium-photo/businessman-pressing-smiley-face-emoticon-virtual-touch-screen-user-give-rating-service-experience-online-application-customer-review-satisfaction-feedback-survey-concept_818293-8.jpg?w=826');
         background-repeat: no-repeat;
         background-size:cover;
         background-attachment: fixed;
-        height:550px}
+        height:750px}
+        .img1{width: 220px;border-radius: 24px;}
+.img3{width: 220px;border-radius: 24px;height:220px}
     .home h2{color:white;font-size: medium;}  
 }
