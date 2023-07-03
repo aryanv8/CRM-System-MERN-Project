@@ -1,16 +1,13 @@
 import React,{useState,useRef} from 'react';
 import emailjs from '@emailjs/browser';
 import { ToastContainer, toast } from 'react-toastify';
-import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 function Forgotpwd(){
 const[mail,setMail]=useState('');
 const[cpwd,setCpwd]=useState('');
 const[rpwd,setRpwd]=useState('');
 const[eotp,setEotp]=useState('');
-var[dis,setDis]=useState('');
 const form = useRef();
-const navigate = useNavigate();//auto redirect not used
 const sendEmail = (e) => {
   e.preventDefault();
 
@@ -49,7 +46,7 @@ const sendEmail = (e) => {
               progress: undefined,
               theme: "dark",
               });
-              setDis("hello");
+
     });
     
 }
@@ -91,10 +88,8 @@ const handleclick=()=>{
             theme: "light",
             });}
 }
-setTimeout(()=>{setDis( );},1)
 
     return( <div className='container-fluid login'>
-   {dis}
    <form ref={form} onSubmit={sendEmail} className='container bg-dark' >
 <h2>Forgot Password</h2>
 <div className="mb-3 mt-4">
