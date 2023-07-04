@@ -180,7 +180,7 @@ function Dashboard() {
             <div className='col-3  rounded-4 container tabs'>
             <ul className="nav flex-column">
                 <li className="nav-item mb-2">
-                    <Link to='./users-info' className='nav-link'><i className="fa-solid fa-user-tag fa-xl" style={{color: '#ffffff'}}></i> Users Info</Link>
+                    <Link to='../customers' className='nav-link'><i className="fa-solid fa-user-tag fa-xl" style={{color: '#ffffff'}}></i> Customers</Link>
                 </li>
                 <li className="nav-item mb-2">
                     <Link to='./products' className='nav-link'><i className="fa-solid fa-cart-plus fa-xl" style={{color: '#ffffff'}}></i> Products</Link>

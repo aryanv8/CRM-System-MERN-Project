@@ -25,6 +25,7 @@ import About from "./pages/About";
 
 // import admin pages
 import Dashboard from "./admin/Dashboard";
+import Customers from "./admin/Customers";
 
 
 function App() {
@@ -49,6 +50,7 @@ function App() {
           <Route path="/forgotpwd" element={<Forgotpwd />} ></Route>
 
           <Route path='/dashboard' element={<Dashboard />} ></Route>
+          <Route path='/customers' element={<Customers />} ></Route>
         </Routes>
         
       </Router>
