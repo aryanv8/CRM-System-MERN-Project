@@ -1,0 +1,62 @@
+.dashboard{
+    color: black;
+}
+.tabs{
+    margin: 0;
+    background-color: black;
+    padding: 10px;
+    padding-top: 30px;
+    font-size: large;
+    margin-left: 3px;
+    margin-right: 3px;
+}
+
+.tabs li:hover{
+    background-color: orange;
+}
+
+.tabs i{
+    margin: 4px;
+}
+
+.sales{
+    width: 23%;
+    margin-left: 16px;
+    margin-right: 8px;
+    text-align: left;
+}
+.expense{
+    width: 23%;
+    margin-left: 16px;
+    margin-right: 8px;
+    text-align: left;
+}
+.profit{
+    width: 23%;
+    margin-left: 16px;
+    margin-right: 8px;
+    text-align: left;
+}
+
+
+@media only screen and (max-width: 800px) {
+    .tabs{
+        font-size: medium;
+        width: 100%;
+        margin: 10px;
+    }
+
+    .sales{
+        width: 100%;
+        margin: 10px;
+    }
+    .expense{
+        width: 100%;
+        margin: 10px;
+    }
+    .profit{
+        width: 100%;
+        margin: 10px;
+    }
+    
+}

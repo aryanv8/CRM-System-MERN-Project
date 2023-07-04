@@ -13,7 +13,7 @@ function Navbar() {
     <div
       class="navbar navbar-dark navbar-expand-md py-3 px-3 sticky-top"
       id={expandNavbar ? "open" : "close"}
-      style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}
+      style={{ backgroundColor: "rgba(0, 0, 0, 1)" }}
     >
       <Link to="/" className="navbar-brand h1">
         {" "}

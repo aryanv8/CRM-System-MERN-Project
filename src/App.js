@@ -23,6 +23,10 @@ import AdminLogin from "./pages/AdminLogin";
 import Home from "./pages/Home";
 import About from "./pages/About";
 
+// import admin pages
+import Dashboard from "./admin/Dashboard";
+import Customers from "./admin/Customers";
+
 
 function App() {
   return (
@@ -43,7 +47,10 @@ function App() {
 
           <Route path='/edit-user' element={<EditUser />} ></Route>
           <Route path="/admin-login" element={<AdminLogin /> } ></Route>
-          <Route path="/forgotpwd" element={<Forgotpwd /> } ></Route>
+          <Route path="/forgotpwd" element={<Forgotpwd />} ></Route>
+
+          <Route path='/dashboard' element={<Dashboard />} ></Route>
+          <Route path='/customers' element={<Customers />} ></Route>
         </Routes>
         
       </Router>
