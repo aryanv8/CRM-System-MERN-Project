@@ -1,6 +1,8 @@
 import React,{useState} from 'react';
 import { Link } from 'react-router-dom';
 import UserForm from '../components/UserForm'
+import Axios from 'axios'
+import md5 from 'md5'
 
 function Signup() {
 
@@ -14,11 +16,39 @@ function Signup() {
     const handleSubmit = () =>{
         //backend process to insert data
 
-        const obj = { fname: data[0], lname: data[1], email: data[2],
-                      pwd: data[3], phone: data[4], dob: data[5], 
-                      gender: data[6], image: data[7], company: data[8],
-                      job: data[9], address: data[10]
-                    }
+        console.log(data);
+
+        console.log(data[1]);
+        console.log(data[0]);
+
+        const formData = new FormData();
+        formData.append("image", data[7]);
+        formData.append("firstName", data[0]);
+        formData.append("lastName", data[1]);
+        formData.append("email", data[2]);
+        formData.append("phone", data[4]);
+        formData.append("dob", data[5]);
+        formData.append("gender", data[6]);
+        formData.append("company", data[8]);
+        formData.append("jobTitle", data[9]);
+        formData.append("country", data[10]);
+        formData.append("address", data[11]);
+
+        let password = data[3];
+        password = md5(password);
+
+        formData.append("password", password);
+
+        console.log(formData.get("image"));
+        
+        Axios.post("http://127.0.0.1:4000/user/register", formData)
+            .then((res) => {
+                if (res.status(200)){
+                    alert('Registration Successful')
+                }
+            })
+            .catch((err) => alert(err))
+
     }
 
     return (

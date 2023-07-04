@@ -42,7 +42,7 @@ function UserForm(props) {
 
     return (
         <div className='container-fluid signup'>
-            <form className='container bg-dark was-validated'>
+            <div className='container bg-dark was-validated'>
                 <h3 className='mt-10'>{props.heading}</h3>
 
                 <div className="mb-3">
@@ -96,19 +96,19 @@ function UserForm(props) {
                 <div className="mb-3">
                     <label className="form-label float-start">Gender:</label>
                     <div className="form-check-inline">
-                        <input type="radio" className="form-check-input" id="male" name="radio-stacked" required 
+                        <input type="radio" className="form-check-input" id="male" name="radio-stacked" value="male" required 
                         onChange={(e) => setGender(e.target.value)}
                         />
                         <label className="form-check-label mx-2" for="male"> Male</label>
                     </div>
                     <div className="form-check-inline">
-                        <input type="radio" className="form-check-input" id="female" name="radio-stacked" required 
+                        <input type="radio" className="form-check-input" id="female" name="radio-stacked" value='female' required 
                         onChange={(e) => setGender(e.target.value)}
                         />
                         <label className="form-check-label mx-2" for="female"> Female</label>
                     </div>
                     <div className="form-check-inline">
-                        <input type="radio" className="form-check-input" id="others" name="radio-stacked" required
+                        <input type="radio" className="form-check-input" id="others" name="radio-stacked" value='other' required
                         onChange={(e) => setGender(e.target.value)}
                         />
                         <label className="form-check-label mx-2" for="others">Others</label>
@@ -118,7 +118,7 @@ function UserForm(props) {
                 <div className="mb-3">
                     <label for="image" className="form-label float-start">Upload image</label>
                     <input type="file" accept="image/*" className="form-control" id="image" placeholder="Enter your First Name" required 
-                    onChange={validateFileType}
+                    onChange={(e) => setImage(e.target.files[0])}
                     defaultValue = {props.imageValue}
                     />
                 </div>
@@ -200,7 +200,7 @@ function UserForm(props) {
                 {props.login}
 
                 
-            </form>
+            </div>
         </div>
     )
 }
