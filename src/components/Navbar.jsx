@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import Cokies from "js-cookie";
 
-function Navbar() {
+function Navbar({isLoggedIn}) {
   const [expandNavbar, setExpandNavbar] = useState(false);
   const location = useLocation();
 
@@ -9,6 +10,35 @@ function Navbar() {
     setExpandNavbar(false);
   }, [location]);
 
+
+  const handleLogout = () => {
+    Cokies.remove("userid");
+
+    window.location.href = "/";
+  };
+
+
+  const handleLayout = () => {
+    if (isLoggedIn) {
+      return (
+        <>
+          <Link to="/profile" className="nav-link mx-3">
+            PROFILE
+          </Link>
+          <button onClick={handleLogout} to="/logout" className="nav-link mx-3">
+            LOGOUT
+          </button>
+        </>
+      );
+    } else {
+      return (
+        <Link to="/login" className="nav-link mx-3" >LOGIN</Link>
+      )
+    }
+  }
+
+
+          
   return (
     <div
       class="navbar navbar-dark navbar-expand-md py-3 px-3 sticky-top"
@@ -47,7 +77,7 @@ function Navbar() {
           <Link to="/contact" className="nav-link mx-3">
             Contact
           </Link>
-          <Link to="/feedback" className="nav-link mx-3">
+          <Link to="/feedback/enter" className="nav-link mx-3">
             Feedback
           </Link>
           <Link to="/login" className=" nav-link mx-3">
@@ -60,10 +90,15 @@ function Navbar() {
           <Link to="/profile" className="nav-link mx-3">
             Profile
           </Link>
+
+          {handleLayout()}
         </div>
       </div>
     </div>
   );
 }
 
+Navbar.defaultProps = {
+  isLoggedIn: true,
+};
 export default Navbar;

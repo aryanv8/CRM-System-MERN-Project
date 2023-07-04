@@ -22,13 +22,13 @@ import UserLogin from "./pages/UserLogin";
 import AdminLogin from "./pages/AdminLogin";
 import Home from "./pages/Home";
 import About from "./pages/About";
-
+import ViewProduct from "./pages/ViewProduct";
 // import admin pages
 import Dashboard from "./admin/Dashboard";
 import Customers from "./admin/Customers";
 import Insights from "./admin/Insights";
 
-
+const product="apple";
 function App() {
   return (
     <div className="App">
@@ -41,7 +41,7 @@ function App() {
           <Route path='/' element={<Home/>}/>
           <Route path='/about'  element={<About />} />
           <Route path='/contact' element={<Contact />}/>
-          <Route path='/feedback' element={<FeedbackPage />} />
+          <Route path='/feedback/:product' element={<FeedbackPage />} />
           <Route path='/login' element={<UserLogin />} />
           <Route path='/signup' element={<Signup />} />
           <Route path='/profile' element={<UserProfilePage/> } />
@@ -49,6 +49,7 @@ function App() {
           <Route path='/edit-user' element={<EditUser />} ></Route>
           <Route path="/admin-login" element={<AdminLogin /> } ></Route>
           <Route path="/forgotpwd" element={<Forgotpwd />} ></Route>
+          <Route path="/view-product" element={<ViewProduct/>} ></Route>
 
           <Route path='/dashboard' element={<Dashboard />} ></Route>
           <Route path='/customers' element={<Customers />} ></Route>
