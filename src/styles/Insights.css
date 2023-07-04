@@ -1,0 +1,28 @@
+.insights{
+    color: white;
+}
+
+.gender, .region, .company{
+    background-color: rgb(26, 22, 22);
+    border-radius: 5px;
+    text-align: left;
+    margin: 10px;
+    box-shadow: 0px 3px 15px rgba(151, 140, 140, 0.434);
+}
+
+.gender:hover, .region:hover, .company:hover {
+    box-shadow: 0px 3px 15px rgb(129, 127, 127);
+    transition: 0.3s ease-in;
+    cursor: pointer;
+  }
+
+@media only screen and (max-width: 800px) {
+    .gender, .region, .company{
+        width: 90%;
+        height: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    
+}
