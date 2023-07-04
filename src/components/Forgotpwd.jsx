@@ -89,32 +89,34 @@ const handleclick=()=>{
             });}
 }
 
-    return( <div className='container-fluid login'>
-   <form ref={form} onSubmit={sendEmail} className='container bg-dark' >
-<h2>Forgot Password</h2>
-<div className="mb-3 mt-4">
-    <label for="mail" className="form-label float-start">Email</label>
-    <input type="email" name="mail" className="form-control"  id="mail" placeholder="Enter your mail id" onChange={(e) => setMail(e.target.value)} title="enter registered mail id" required />
-<input type="hidden" id="otp" value="673291" name="otp"/>
-</div>
-<div>
-<button type='submit' className='btn btn-outline-warning w-50 mt-4' value='Submit' >Get OTP</button>
-</div>
-</form>
-<br/><br/>
-<form className='container bg-dark' onSubmit={handleclick}>
-    <h1>Reset password</h1>
-    <label for="cpwd" className="form-label float-start">Confirm Password</label>
-    <input type="password" id="cpwd" className="form-control" onChange={(e)=>{setCpwd(e.target.value)}}/> 
-    <label for="rpwd" className="form-label float-start">Re Enter Password</label>
-    <input type="password" id="rpwd" className="form-control"  onChange={(e)=>{setRpwd(e.target.value)}}/> 
-    <label for="eotp" className="form-label float-start">Enter OTP</label>
-    <input type="password" id="eotp" className="form-control"  onChange={(e)=>{setEotp(e.target.value)}}/> 
-    <button type='submit' className='btn btn-outline-warning w-50 mt-4' value='Submit' >Reset</button>
-    <Link to="/login">Login</Link>
-</form>
+    return( 
+        <div className='container-fluid login'>
+            <form ref={form} onSubmit={sendEmail} className='container bg-dark' >
+            <h2>Forgot Password</h2>
+            <div className="mb-3 mt-4">
+                <label for="mail" className="form-label float-start">Email</label>
+                <input type="email" name="mail" className="form-control"  id="mail" placeholder="Enter your mail id" onChange={(e) => setMail(e.target.value)} title="enter registered mail id" required />
+                <input type="hidden" id="otp" value="673291" name="otp"/>
+            </div>
+            <div>
+                <button type='submit' className='btn btn-outline-warning w-50 mt-4' value='Submit' >Get OTP</button>
+            </div>
+        </form>
+        <br/><br/>
+        <form className='container bg-dark' onSubmit={handleclick}>
+            <h1>Reset password</h1>
+            <label for="cpwd" className="form-label float-start">Confirm Password</label>
+            <input type="password" id="cpwd" className="form-control" onChange={(e)=>{setCpwd(e.target.value)}}/> 
+            <label for="rpwd" className="form-label float-start">Re Enter Password</label>
+            <input type="password" id="rpwd" className="form-control"  onChange={(e)=>{setRpwd(e.target.value)}}/> 
+            <label for="eotp" className="form-label float-start">Enter OTP</label>
+            <input type="password" id="eotp" className="form-control"  onChange={(e)=>{setEotp(e.target.value)}}/> 
+            <button type='submit' className='btn btn-outline-warning w-50 mt-4' value='Submit' >Reset</button>
+            <Link to="/login">Login</Link>
+        </form>
 
         <ToastContainer/>
-        </div>);
+        </div>
+        );
 }
 export default Forgotpwd;
