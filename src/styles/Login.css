@@ -3,7 +3,7 @@
     /* background-color: aliceblue; */
     padding: 50px;
     font-size: large;}
-.login form{
+.login > div{
     border-radius: 10px;
     border: 3px solid white;
     width: 40%;

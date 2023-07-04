@@ -1,25 +1,50 @@
 import React, { useEffect, useState } from "react";
+import Axios from "axios";
+import Cookies from "js-cookie";
 function UserProfilePage() {
   const [user, setUser] = useState({});
+  const [retrieved, setRetrieved] = useState(false);
+  // eslint-disable-next-line
+  const [uid, setUid] = useState(null);
+
+  const SERVER_URL_USER = "http://localhost:4000/user";
+  
+
+  const user1 = {
+    _id: 1,
+    firstName: "John",
+    lastName: "Doe",
+    email: "johndoe@gmail.com",
+    phone: "9876543210",
+    dob: "1990-01-01",
+    gender: "male",
+    image: "https://www.w3schools.com/howto/img_avatar.png",
+    company: "ABC",
+    jobTitle: "Developer",
+    country: "India",
+    address: "Mumbai",
+  };
 
   useEffect(() => {
-    //TODO - fetch user details by id from server or use cookie to get user details
-    const user1 = {
-      _id: 1,
-      firstName: "John",
-      lastName: "Doe",
-      email: "johndoe@gmail.com",
-      phone: "9876543210",
-      dob: "1990-01-01",
-      gender: "male",
-      image: "https://www.w3schools.com/howto/img_avatar.png",
-      company: "ABC",
-      jobTitle: "Developer",
-      country: "India",
-      address: "Mumbai",
-    };
-    setUser(user1);
-  }, []);
+
+    const fetchData = async () => {
+      try {
+        const uid = await Cookies.get("userid");
+        setUid(uid);
+        const response = await Axios.get(
+          `${SERVER_URL_USER}/profile?id=${uid}`
+        );
+        setUser(response.data.user);
+        setRetrieved(true);
+      } catch (error) {
+        console.log(error);
+        setUser(user1);
+      }
+    }
+
+    fetchData();
+    
+  },[]);
 
   return (
     <div>
@@ -27,7 +52,7 @@ function UserProfilePage() {
         <h1 className="text-center display-4 my-5 text-white">Profile</h1>
         <div className="text-center my-4">
           <img
-            src={user.image}
+            src={retrieved?`${SERVER_URL_USER}/image/${user.image}`: user.image}
             alt="User Avatar"
             className="rounded-circle"
             style={{ width: "250px", height: "250px" }}
