@@ -1,5 +1,6 @@
 import React,{useState,useRef} from 'react';
 import emailjs from '@emailjs/browser';
+import '../styles/Forgotpwd.css';
 import { ToastContainer, toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
 function Forgotpwd(){
@@ -7,10 +8,11 @@ const[mail,setMail]=useState('');
 const[cpwd,setCpwd]=useState('');
 const[rpwd,setRpwd]=useState('');
 const[eotp,setEotp]=useState('');
+const[ch,setCh]=useState('');
 const form = useRef();
 const sendEmail = (e) => {
   e.preventDefault();
-
+///alert(ch);
   emailjs.sendForm('service_hf5pzzg', 'template_bc9f6uk', form.current, 'LMTGealAZ7vCqcmRt')
     .then((result) => {
         console.log(result.text);
@@ -51,7 +53,7 @@ const sendEmail = (e) => {
     
 }
 const handleclick=()=>{
-    const ch=document.getElementById("otp").value;
+    //alert(ch);
     if(cpwd!=rpwd){
         toast.error('Passwords not match', {
             position: "top-right",
@@ -89,17 +91,14 @@ const handleclick=()=>{
             });}
 }
 
-    return( <div className='container-fluid login'>
+    return( <div className='container-fluid forgotpwd'>
    <form ref={form} onSubmit={sendEmail} className='container bg-dark' >
 <h2>Forgot Password</h2>
 <div className="mb-3 mt-4">
     <label for="mail" className="form-label float-start">Email</label>
-    <input type="email" name="mail" className="form-control"  id="mail" placeholder="Enter your mail id" onChange={(e) => setMail(e.target.value)} title="enter registered mail id" required />
-<input type="hidden" id="otp" value="673291" name="otp"/>
-</div>
-<div>
-<button type='submit' className='btn btn-outline-warning w-50 mt-4' value='Submit' >Get OTP</button>
-</div>
+    <input type="email" name="mail" className="form-control"  id="mail" placeholder="Enter your mail id" onChange={(e) => {setMail(e.target.value);setCh(Math.floor((Math.random()*1000000)+1));}} title="enter registered mail id" required />
+<input type="hidden" id="otp" value={ch} name="otp"/>
+<button type='submit' className='btn btn-outline-warning w-50 mt-4' value='Submit' >Get OTP</button></div>
 </form>
 <br/><br/>
 <form className='container bg-dark' onSubmit={handleclick}>
@@ -115,6 +114,7 @@ const handleclick=()=>{
 </form>
 
         <ToastContainer/>
-        </div>);
+        </div>
+        );
 }
 export default Forgotpwd;

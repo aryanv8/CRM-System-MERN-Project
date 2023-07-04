@@ -1,0 +1,32 @@
+.forgotpwd{
+    color: white;
+    /* background-color: aliceblue; */
+    padding: 50px;
+    font-size: large;}
+.forgotpwd form{
+    border-radius: 10px;
+    border: 3px solid white;
+    width: 40%;
+    padding: 20px;
+}
+.forgotpwd input{
+    /* background-color: whitesmoke; */
+    border: 2px solid ;
+}
+.forgotpwd a{
+    margin-left: 70%;
+}
+@media only screen and (max-width: 800px) {
+    .forgotpwd{
+        padding: 20px;
+    }
+
+    .forgotpwd form{
+        width: 90%;
+        padding: 20px;
+    }
+    .forgotpwd a{
+        margin-left: 60%;
+        font-size: smaller;
+    }
+}
