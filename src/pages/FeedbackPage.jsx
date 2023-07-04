@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 // import { MDBBtn, MDBValidation } from "mdb-react-ui-kit";
-
+import {useParams,Link} from "react-router-dom";
 function FeedbackPage() {
   //TODO - Product list should come from an Database (MongoDB) inside useEffect() hook
   //eslint-disable-next-line
+  const param=useParams();
+var pro=param.product;
   const [products, setProducts] = useState([
     "Product 1",
     "Product 2",
@@ -159,11 +161,13 @@ function FeedbackPage() {
   };
 
   return (
+
     <div
       className="container-fluid justify-content-center align-items-center d-flex"
       style={{ minHeight: "95vh" }}
     >
       <div style={{ width: "100%" }}>
+      <h1>product name={param.product}</h1>
         <h1 className="text-center display-4 text-white my-5">
           Provide Feedback
         </h1>

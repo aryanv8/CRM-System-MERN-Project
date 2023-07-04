@@ -47,7 +47,7 @@ function Navbar() {
           <Link to="/contact" className="nav-link mx-3">
             Contact
           </Link>
-          <Link to="/feedback" className="nav-link mx-3">
+          <Link to="/feedback/enter" className="nav-link mx-3">
             Feedback
           </Link>
           <Link to="/login" className=" nav-link mx-3">
