@@ -189,7 +189,7 @@ function Dashboard() {
                     <Link to='./show-feedback' className='nav-link'><i className="fa-solid fa-comment fa-xl" style={{color: '#ffffff'}}></i> Feedback's</Link>
                 </li>
                 <li className="nav-item mb-2">
-                    <Link to='./insights' className='nav-link'><i className="fa-solid fa-chart-line fa-xl" style={{color: '#ffffff'}}></i> Insights</Link>
+                    <Link to='../insights' className='nav-link'><i className="fa-solid fa-chart-line fa-xl" style={{color: '#ffffff'}}></i> Insights</Link>
                 </li>
             </ul>   
             </div>

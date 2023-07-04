@@ -114,6 +114,7 @@ const handleclick=()=>{
 </form>
 
         <ToastContainer/>
-        </div>);
+        </div>
+        );
 }
 export default Forgotpwd;
