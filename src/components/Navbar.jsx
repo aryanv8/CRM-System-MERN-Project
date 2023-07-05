@@ -13,7 +13,6 @@ function Navbar({isLoggedIn}) {
 
   const handleLogout = () => {
     Cokies.remove("userid");
-
     window.location.href = "/";
   };
 
@@ -22,18 +21,28 @@ function Navbar({isLoggedIn}) {
     if (isLoggedIn) {
       return (
         <>
+          <Link to="/feedback/enter" className="nav-link mx-3">
+            Feedback
+          </Link>
           <Link to="/profile" className="nav-link mx-3">
             PROFILE
           </Link>
-          <button onClick={handleLogout} to="/logout" className="nav-link mx-3">
+          <button onClick={handleLogout}  className="nav-link mx-3">
             LOGOUT
           </button>
         </>
       );
     } else {
       return (
-        <Link to="/login" className="nav-link mx-3" >LOGIN</Link>
-      )
+        <>
+        <Link to="/login" className=" nav-link mx-3">
+            Login
+          </Link>
+          <Link to="/signup" className="nav-link mx-3">
+            Sign-Up
+          </Link>
+        </>   
+      );
     }
   }
 
@@ -76,19 +85,6 @@ function Navbar({isLoggedIn}) {
           </Link>
           <Link to="/contact" className="nav-link mx-3">
             Contact
-          </Link>
-          <Link to="/feedback/enter" className="nav-link mx-3">
-            Feedback
-          </Link>
-          <Link to="/login" className=" nav-link mx-3">
-            Login
-          </Link>
-          <Link to="/signup" className="nav-link mx-3">
-            Sign-Up
-          </Link>
-          {/* Link to /profile named Profile */}
-          <Link to="/profile" className="nav-link mx-3">
-            Profile
           </Link>
 
           {handleLayout()}
