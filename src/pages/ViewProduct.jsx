@@ -22,10 +22,11 @@ function ViewProduct(){
       });
     }, []);
 
-return(<div>
-     {data.map((data) => (<div>
-  <div class="card bg-primary text-center" style={{width:"30rem"}}>
-  <img src={data.images[0]} class="card-img-top" alt={data.title}/>
+return(<div class="row container-fluid mx-auto">
+  <h1 class="text-white text-uppercase">Product details</h1>
+     {data.map((data) => (<div class="col-4">
+  <div class="card bg-primary text-center" style={{width:"24rem",height:"35rem"}}>
+  <img src={data.images[0]} class="card-img-top" style={{height:"20rem"}} alt={data.title}/>
   <div class="card-body">
     <h5 class="card-title">{data.title}</h5>
     <p class="card-text">{data.description}</p>
