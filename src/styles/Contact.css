@@ -13,7 +13,7 @@
     background-blend-mode: difference;
 }
 .contact{
-    border: 5px solid orange;
+    border: 3px solid white;
     margin: 50px;
     width: 50%;
     border-radius: 10px;
@@ -26,14 +26,14 @@
     border-left: 0;
     border-right: 0;
     border-top: 0; */
-    border: 2px solid rgb(249, 165, 9);
+    border: 2px solid;
 }
 .contact textarea{
     /* border-radius: 0%;
     border-left: 0;
     border-right: 0;
     border-top: 0; */
-    border: 2px solid rgb(249, 165, 9);
+    border: 2px solid;
 }
 
 @media only screen and (max-width: 800px) {

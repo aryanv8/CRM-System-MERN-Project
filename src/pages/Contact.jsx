@@ -57,11 +57,11 @@ function Contact() {
     >
         <div className='contact bg-dark'>
             <form className=' mx-auto' ref={form} onSubmit={sendEmail} method='post' id='Form'>
-                <h1 className='my-4 text-warning'>Contact</h1>
+                <h1 className='text-light'>Contact</h1>
                 <input type='text' className='form-control my-3' placeholder='Your Name' name='from_name' required></input>
                 <input type='email' className='form-control my-3' placeholder='Your Email' name='from_email' required></input>
                 <textarea className='form-control my-3 mx-auto' rows='5' placeholder='Enter your message' name='message' required></textarea>
-                <button className='btn btn-warning mt-3' value='submit' type='submit' >Send <i class="fa-solid fa-paper-plane"></i></button>
+                <button className='btn btn-light mt-3' value='submit' type='submit' >Send <i class="fa-solid fa-paper-plane"></i></button>
             </form>
             <ToastContainer />
         </div>
