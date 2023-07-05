@@ -28,8 +28,9 @@ function Customers() {
         <input className="me-2 form-control" type="search" placeholder="Search..." aria-label="Search" id='search'/>
       </div>
 
-      <table className='table table-bordered mx-auto border-light table table-striped'>
-        <thead className='table-dark border-light'>
+      <table className='table mx-auto border shadow table-bordered table-dark table-hover rounded'
+      style={{ borderRadius: "10px" }}>
+        <thead>
           <tr>
             <th>Name</th>
             <th>Email</th>

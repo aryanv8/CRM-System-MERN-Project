@@ -121,91 +121,9 @@ function Insights() {
               }]
             },
   })
-
+  
   const [performance] = useState({
-    series: [75],
-            options: {
-              chart: {
-                height: 350,
-                type: 'radialBar',
-                toolbar: {
-                  show: false
-                }
-              },
-              plotOptions: {
-                radialBar: {
-                  startAngle: -135,
-                  endAngle: 225,
-                   hollow: {
-                    margin: 0,
-                    size: '70%',
-                    background: '#fff',
-                    image: undefined,
-                    imageOffsetX: 0,
-                    imageOffsetY: 0,
-                    position: 'front',
-                    dropShadow: {
-                      enabled: true,
-                      top: 3,
-                      left: 0,
-                      blur: 4,
-                      opacity: 0.24
-                    }
-                  },
-                  track: {
-                    background: '#fff',
-                    strokeWidth: '67%',
-                    margin: 0, // margin is in pixels
-                    dropShadow: {
-                      enabled: true,
-                      top: -3,
-                      left: 0,
-                      blur: 4,
-                      opacity: 0.35
-                    }
-                  },
-              
-                  dataLabels: {
-                    show: true,
-                    name: {
-                      offsetY: -10,
-                      show: true,
-                      color: '#888',
-                      fontSize: '17px'
-                    },
-                    value: {
-                      formatter: function(val) {
-                        return parseInt(val);
-                      },
-                      color: '#111',
-                      fontSize: '36px',
-                      show: true,
-                    }
-                  }
-                }
-              },
-              fill: {
-                stype: 'gradient',
-                gradient: {
-                  shade: 'dark',
-                  type: 'horizontal',
-                  shadeIntensity: 0.5,
-                  gradientToColors: ['#ABE5A1'],
-                  inverseColors: true,
-                  opacityFrom: 1,
-                  opacityTo: 1,
-                  stops: [0, 100]
-                }
-              },
-              stroke: {
-                lineCap: 'round'
-              },
-              labels: ['Percent'],
-            },
-          
-  })
-  const [usage] = useState({
-    series: [69],
+    series: [74],
             options: {
               chart: {
                 height: 350,
@@ -287,6 +205,118 @@ function Insights() {
           
   })
 
+  const [usage] = useState({
+    series: [69],
+            options: {
+              chart: {
+                height: 350,
+                type: 'radialBar',
+                toolbar: {
+                  show: false
+                }
+              },
+              plotOptions: {
+                radialBar: {
+                  startAngle: -135,
+                  endAngle: 225,
+                   hollow: {
+                    margin: 0,
+                    size: '70%',
+                    background: '#fff',
+                    image: undefined,
+                    imageOffsetX: 0,
+                    imageOffsetY: 0,
+                    position: 'front',
+                    dropShadow: {
+                      enabled: true,
+                      top: 3,
+                      left: 0,
+                      blur: 4,
+                      opacity: 0.24
+                    }
+                  },
+                  track: {
+                    background: '#fff',
+                    strokeWidth: '67%',
+                    margin: 0, // margin is in pixels
+                    dropShadow: {enabled: true, top: -3, left: 0, blur: 4, opacity: 0.35}
+                  },
+              
+                  dataLabels: {
+                    show: true,
+                    name: { offsetY: -10, show: true, color: '#888', fontSize: '17px'},
+                    value: {
+                      formatter: function(val) {
+                        return parseInt(val);
+                      },
+                      color: '#111', fontSize: '36px', show: true,
+                    }
+                  }
+                }
+              },
+              fill: {
+                type: 'gradient',
+                gradient: {
+                  shade: 'dark', type: 'horizontal', shadeIntensity: 0.5, gradientToColors: ['#ABE5A1'],
+                  inverseColors: true,
+                  opacityFrom: 1,
+                  opacityTo: 1,
+                  stops: [0, 100]
+                }
+              },
+              stroke: {lineCap: 'round'},
+              labels: ['Percent'],
+            },  
+  })
+
+  const [age] = useState({
+    series: [{
+      data: [60, 40, 30, 33, 20, 10]
+    }],
+    options: {
+      chart: {
+        type: 'bar',
+        height: 350,
+        toolbar: {show: false}
+      },
+      plotOptions: {
+        bar: {
+          borderRadius: 4,
+          horizontal: true,
+        }
+      },
+      
+      xaxis: {
+        categories: ['20-30', '30-40', '40-50', '50-60', '60-70', '70-80'],
+        axisBorder: {show: false},
+        axisTicks: {show: false}
+      },
+      yaxis:{
+        axisBorder: {show: false},
+        axisTicks: {show: false},
+      }
+    },
+  })
+
+  const [job] = useState({
+    options: {
+        colors:['#7000FF'],
+      chart: {
+        width: '100%',
+        toolbar: {show: false},
+      },
+      xaxis: {
+        categories: ['Sales Manager', 'Marketing / PR Manager', 'Customer Service Manager', 'CxO / General Manager', 'IT Manager', 'Operations Manager', 'Developer', 'Student / Personal Interest', 'Others']
+      }
+    },
+    series: [
+      {
+        name: "job title",
+        data: [100, 200, 300, 400, 500, 600, 700, 800, 900]
+      }
+    ]
+  })
+
   return (
     <div className='container-fluid insights'>
       <h1 className='mt-3'>Insights</h1>
@@ -317,6 +347,18 @@ function Insights() {
           <Chart options={usage.options} series={usage.series} type="radialBar" />
         </div>
 
+      </div>
+
+      <div className='row'>
+        <div className='col-sm-12 col-md-5 graphs mx-auto'>
+          <h4 className='pt-2 pl-5'>Age</h4>
+          <Chart options={age.options} series={age.series} type="bar"/>
+        </div>
+
+        <div className='col-sm-12 col-md-5 graphs mx-auto'>
+          <h4 className='pt-2 pl-5'>Job Title</h4>
+          <Chart options={job.options} series={job.series} type="bar"/>
+        </div>
       </div>
     </div>
   )
