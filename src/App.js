@@ -19,7 +19,7 @@ import Signup from "./pages/Signup";
 import UserProfilePage from "./pages/UserProfilePage";
 import EditUser from "./pages/EditUser";
 import UserLogin from "./pages/UserLogin";
-import AdminLogin from "./pages/AdminLogin";
+import AdminLogin from "./admin/AdminLogin";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import ViewProduct from "./pages/ViewProduct";
