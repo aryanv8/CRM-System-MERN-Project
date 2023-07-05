@@ -6,7 +6,7 @@ function FeedbackPage() {
   //eslint-disable-next-line
   const param=useParams();
 var pro=param.product;
-  const [products, setProducts] = useState([
+ /* const [products, setProducts] = useState([
     "Product 1",
     "Product 2",
     "Product 3",
@@ -17,7 +17,8 @@ var pro=param.product;
     "Product 8",
     "Product 9",
     "Product 10",
-  ]);
+  ]);*/
+  const[product,setProducts]=useState(param.product);
   const [name, setName] = useState("");
   const [nameError, setNameError] = useState("");
 
@@ -167,7 +168,6 @@ var pro=param.product;
       style={{ minHeight: "95vh" }}
     >
       <div style={{ width: "100%" }}>
-      <h1>product name={param.product}</h1>
         <h1 className="text-center display-4 text-white my-5">
           Provide Feedback
         </h1>
@@ -209,7 +209,8 @@ var pro=param.product;
                 </label>
               </div>
               <div className="col-md-10 col-12 p-0">
-                <select
+                <input type="text" id="products" name="products" className="form-control" value={product} disabled/>
+               { /*<select
                   className="form-select"
                   id="products"
                   name="products"
@@ -225,7 +226,7 @@ var pro=param.product;
                       {product}
                     </option>
                   ))}
-                </select>
+                  </select>*/}
                 <div
                   className="form-text text-end text-danger"
                   style={{ display: selectedProductError ? "block" : "none" }}
