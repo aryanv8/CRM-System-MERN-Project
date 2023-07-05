@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import Cokies from "js-cookie";
 
-function Navbar({isLoggedIn}) {
+function Navbar(props) {
   const [expandNavbar, setExpandNavbar] = useState(false);
   const location = useLocation();
 
@@ -18,17 +18,17 @@ function Navbar({isLoggedIn}) {
 
 
   const handleLayout = () => {
-    if (isLoggedIn) {
+    if (props.isLoggedIn) {
       return (
         <>
-          <Link to="/feedback/enter" className="nav-link mx-3">
-            Feedback
+          <Link to="/products" className="nav-link mx-3">
+            Products
           </Link>
           <Link to="/profile" className="nav-link mx-3">
-            PROFILE
+            Profile
           </Link>
-          <button onClick={handleLogout}  className="nav-link mx-3">
-            LOGOUT
+          <button onClick={handleLogout}  className="btn btn-outline-light mx-3 ">
+            Logout <i class="fa-solid fa-arrow-right-from-bracket"></i>
           </button>
         </>
       );
