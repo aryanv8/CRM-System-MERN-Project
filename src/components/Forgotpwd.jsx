@@ -68,7 +68,7 @@ const handleclick=()=>{
             theme: "light",
             });
     }
-   /* else if(ch!=eotp){
+   else if(ch!=eotp){
         toast.error('OTP not match. re-enter otp', {
             position: "top-right",
             autoClose: 5000,
@@ -78,7 +78,7 @@ const handleclick=()=>{
             draggable: true,
             progress: undefined,
             theme: "light",
-            });}*/
+            });}
     else{
         //backend process
         const formData = new FormData();
@@ -97,7 +97,8 @@ const handleclick=()=>{
                 progress: undefined,
                 theme: "light",
                 });
-          window.location.href = "./#/login";
+        setTimeout(()=>{window.location.href = "./#/login";},2000)
+          
         } else {
           alert(res.error);
         }
