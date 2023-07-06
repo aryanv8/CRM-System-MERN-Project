@@ -79,7 +79,7 @@ function UserForm(props) {
 
                 <div className="mb-3">
                     <label for="phone" className="form-label float-start">Phone Number</label>
-                    <input type="tel" className="form-control" id="phone" placeholder="Enter your Phone no" maxLength={10} required 
+                    <input type="tel" className="form-control" id="phone" placeholder="Enter your Phone no" maxLength={10} minLength={10} required 
                     onChange = {(e) => setPhone(e.target.value)}
                     defaultValue = {props.phoneValue}
                     />
