@@ -22,30 +22,29 @@ function ViewProduct(){
       });
     }, []);
 
-return(<div class="row container-fluid mx-auto">
-  <h1 class="text-white text-uppercase">Product details</h1>
-     {data.map((data) => (<div class="col-4">
-  <div class="card bg-primary text-center" style={{width:"24rem",height:"35rem"}}>
-  <img src={data.images[0]} class="card-img-top" style={{height:"20rem"}} alt={data.title}/>
-  <div class="card-body">
-    <h5 class="card-title">{data.title}</h5>
-    <p class="card-text">{data.description}</p>
-    <div class="row card-text">
-        <div class="col-4 card-text">Brand:{data.brand}</div>
-        <div class="col-4 card-text">Price:${data.price}</div>
-        <div class="col-4 card-text">Stock:{data.stock}</div>
-    </div><br/>
-    <button class="btn btn-outline-dark"><Link to={"/feedback/"+data.title} class="nav-link">Feedback</Link></button>
-  </div>
-</div>
-<br/>
-
-  </div>
-  
-  ))
-  
-  
-  }
-</div>);
+return(
+  <div className="row container-fluid mx-auto">
+    <h1 className="mt-3 mb-5">Product details</h1>
+    {data.map((data) => (
+      <div className="col-md-4 col-sm-12">
+        <div className="card bg-dark border text-center shadow mx-auto m-4" style={{width:"24rem",height:"35rem"}}>
+          <img src={data.images[0]} className="card-img-top" style={{height:"20rem"}} alt={data.title}/>
+          <div className="card-body">
+            <h5 className="card-title text-light">{data.title}</h5>
+            <p className="card-text">{data.description}</p>
+            <div className="row card-text">
+              <span className="col-6 card-text text-warning">Brand: {data.brand}</span>
+              <span className="col-6 card-text text-warning">Price: ${data.price}</span>
+            </div>
+            <button className="btn btn-primary mt-2 mb-3"><Link to={"/feedback/"+data.title} className="nav-link">Feedback</Link></button>
+          </div>
+        </div>
+        
+      </div>
+      ))
+      }
+    </div>
+    );
 }
+
 export default ViewProduct;

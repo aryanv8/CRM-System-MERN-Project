@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import Cokies from "js-cookie";
 
-function Navbar({isLoggedIn}) {
+function Navbar(props) {
   const [expandNavbar, setExpandNavbar] = useState(false);
   const location = useLocation();
 
@@ -13,27 +13,36 @@ function Navbar({isLoggedIn}) {
 
   const handleLogout = () => {
     Cokies.remove("userid");
-
     window.location.href = "/";
   };
 
 
   const handleLayout = () => {
-    if (isLoggedIn) {
+    if (props.isLoggedIn) {
       return (
         <>
-          <Link to="/profile" className="nav-link mx-3">
-            PROFILE
+          <Link to="/products" className="nav-link mx-3">
+            Products
           </Link>
-          <button onClick={handleLogout} to="/logout" className="nav-link mx-3">
-            LOGOUT
+          <Link to="/profile" className="nav-link mx-3">
+            Profile
+          </Link>
+          <button onClick={handleLogout}  className="btn btn-outline-light mx-3 ">
+            Logout <i class="fa-solid fa-arrow-right-from-bracket"></i>
           </button>
         </>
       );
     } else {
       return (
-        <Link to="/login" className="nav-link mx-3" >LOGIN</Link>
-      )
+        <>
+        <Link to="/login" className=" nav-link mx-3">
+            Login
+          </Link>
+          <Link to="/signup" className="nav-link mx-3">
+            Sign-Up
+          </Link>
+        </>   
+      );
     }
   }
 
@@ -76,19 +85,6 @@ function Navbar({isLoggedIn}) {
           </Link>
           <Link to="/contact" className="nav-link mx-3">
             Contact
-          </Link>
-          <Link to="/feedback/enter" className="nav-link mx-3">
-            Feedback
-          </Link>
-          <Link to="/login" className=" nav-link mx-3">
-            Login
-          </Link>
-          <Link to="/signup" className="nav-link mx-3">
-            Sign-Up
-          </Link>
-          {/* Link to /profile named Profile */}
-          <Link to="/profile" className="nav-link mx-3">
-            Profile
           </Link>
 
           {handleLayout()}
