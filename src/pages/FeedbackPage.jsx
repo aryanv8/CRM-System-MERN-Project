@@ -1,12 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 // import { MDBBtn, MDBValidation } from "mdb-react-ui-kit";
-import {useParams,Link} from "react-router-dom";
+// eslint-disable-next-line
+import { useParams, useLocation } from "react-router-dom";
+import Cookies from "js-cookie";
+
+import axios from "axios";
+
 function FeedbackPage() {
-  //TODO - Product list should come from an Database (MongoDB) inside useEffect() hook
-  //eslint-disable-next-line
-  const param=useParams();
-var pro=param.product;
- /* const [products, setProducts] = useState([
+  const location = useLocation();
+  // const param = useParams();
+  // var pro = param.product;
+  // const { productName, productId } = location.state;
+  /* const [products, setProducts] = useState([
     "Product 1",
     "Product 2",
     "Product 3",
@@ -18,12 +23,15 @@ var pro=param.product;
     "Product 9",
     "Product 10",
   ]);*/
-  const[product,setProducts]=useState(param.product);
+  // const [product, setProducts] = useState(param.product);
   const [name, setName] = useState("");
   const [nameError, setNameError] = useState("");
 
-  const [selectedProduct, setSelectedProduct] = useState("");
-  const [selectedProductError, setSelectedProductError] = useState("");
+  const [productName, setProductName] = useState("");
+  const [productId, setProductId] = useState("");
+
+  // const [selectedProduct, setSelectedProduct] = useState("");
+  // const [selectedProductError, setSelectedProductError] = useState("");
 
   const [ratingExperience, setRatingExperience] = useState(0);
   const [ratingExperienceError, setRatingExperienceError] = useState("");
@@ -43,6 +51,19 @@ var pro=param.product;
   const [ratingOverall, setRatingOverall] = useState(0);
   const [ratingOverallError, setRatingOverallError] = useState("");
 
+  const [suggestion, setSuggestion] = useState("");
+
+  useEffect(() => {
+    // find the first name of the user from the cookie
+    const uname = Cookies.get("firstname");
+    // const location = useLocation();
+
+    setProductName(location.state.name);
+    setProductId(location.state.id);
+
+    setName(uname);
+    // eslint-disable-next-line
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -51,10 +72,10 @@ var pro=param.product;
       setNameError("Name cannot be empty");
       flag = false;
     }
-    if (selectedProduct === "") {
-      setSelectedProductError("Please select a product");
-      flag = false;
-    }
+    // if (selectedProduct === "") {
+    //   setSelectedProductError("Please select a product");
+    //   flag = false;
+    // }
     if (ratingExperience === 0) {
       setRatingExperienceError("Please select a rating");
       flag = false;
@@ -80,22 +101,55 @@ var pro=param.product;
       flag = false;
     }
 
-
     if (flag) {
-      alert(`Name: ${name} \nProduct: ${selectedProduct}`);
+      // alert(`Name: ${name} \nProduct: ${productName}`);
+      // get the User ID and user first name from the cookie
+      const userId = Cookies.get("userid");
+      const firstName = Cookies.get("firstname");
+
+      // create a FormData object
+      const formData = new FormData();
+      formData.append("userid", userId);
+      formData.append("username", firstName);
+      formData.append("productname", productName);
+      formData.append("productid", productId);
+      formData.append("experience", ratingExperience);
+      formData.append("durability", ratingDurability);
+      formData.append("value_for_money", ratingVFM);
+      formData.append("efficiency", ratingEfficiency);
+      formData.append("ease_of_use", ratingEaseOfUse);
+      formData.append("overall_rating", ratingOverall);
+      if (suggestion !== "") {
+        formData.append("suggestion", suggestion);
+      }
+
+      // send the form data to the server
+      axios
+        .post("http://localhost:4000/user/submit-feedback", formData)
+        .then((res) => {
+          if (res.status === 200) {
+            alert(res.data.message);
+            window.location.href = "/#/products";
+          } else {
+            alert(res.data.message);
+          }
+        })
+        .catch((err) => {
+          alert(err);
+        });
     }
     // alert(`Name: ${name}`)
   };
 
-  const nameOnChange = (e) => {
-    setName(e.target.value);
-    setNameError("");
-  };
+  // const nameOnChange = (e) => {
+  //   setName(e.target.value);
+  //   setNameError("");
+  // };
 
-  const selectedProductOnChange = (e) => {
-    setSelectedProduct(e.target.value);
-    setSelectedProductError("");
-  };
+  // const selectedProductOnChange = (e) => {
+  //   setSelectedProduct(e.target.value);
+  //   setSelectedProductError("");
+  // };
 
   const ratingExperienceOnChange = (e) => {
     setRatingExperience(e.target.value);
@@ -126,7 +180,6 @@ var pro=param.product;
     setRatingOverall(e.target.value);
     setRatingOverallError("");
   };
-
 
   const ratings = {
     Experience: {
@@ -162,7 +215,6 @@ var pro=param.product;
   };
 
   return (
-
     <div
       className="container-fluid justify-content-center align-items-center d-flex"
       style={{ minHeight: "95vh" }}
@@ -188,9 +240,11 @@ var pro=param.product;
                   id="name"
                   name="name"
                   className="form-control placehoder-red"
-                  placeholder="Enter the name"
-                  required
-                  onChange={nameOnChange}
+                  value={name}
+                  disabled
+                  // placeholder="Enter the name"
+                  // required
+                  // onChange={nameOnChange}
                 />
                 <div
                   className="form-text text-end text-danger"
@@ -209,8 +263,15 @@ var pro=param.product;
                 </label>
               </div>
               <div className="col-md-10 col-12 p-0">
-                <input type="text" id="products" name="products" className="form-control" value={product} disabled/>
-               { /*<select
+                <input
+                  type="text"
+                  id="products"
+                  name="products"
+                  className="form-control"
+                  value={productName}
+                  disabled
+                />
+                {/*<select
                   className="form-select"
                   id="products"
                   name="products"
@@ -227,12 +288,12 @@ var pro=param.product;
                     </option>
                   ))}
                   </select>*/}
-                <div
+                {/* <div
                   className="form-text text-end text-danger"
                   style={{ display: selectedProductError ? "block" : "none" }}
                 >
                   {selectedProductError}
-                </div>
+                </div> */}
               </div>
             </div>
 
@@ -293,10 +354,10 @@ var pro=param.product;
                   name="suggestion"
                   rows="3"
                   placeholder="Enter any suggestion / complaint (optional)"
+                  onChange={(e) => setSuggestion(e.target.value)}
                 ></textarea>
               </div>
             </div>
-            
 
             <div className="row my-5">
               <div className="col-md-2 col-12"></div>

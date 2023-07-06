@@ -2,32 +2,42 @@ import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import Cokies from "js-cookie";
 
-function Navbar(props) {
+function Navbar() {
   const [expandNavbar, setExpandNavbar] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [firstName, setFirstName] = useState("");
   const location = useLocation();
 
   useEffect(() => {
     setExpandNavbar(false);
+    if (Cokies.get("userid")) {
+      setIsLoggedIn(true);
+      setFirstName(Cokies.get("firstname"));
+    } else {
+      setIsLoggedIn(false);
+    }
   }, [location]);
-
 
   const handleLogout = () => {
     Cokies.remove("userid");
+
     window.location.href = "/";
   };
 
-
   const handleLayout = () => {
-    if (props.isLoggedIn) {
+    if (isLoggedIn) {
       return (
         <>
           <Link to="/products" className="nav-link mx-3">
             Products
           </Link>
-          <Link to="/profile" className="nav-link mx-3">
-            Profile
+          <Link to="/profile" className="nav-link mx-3" style={{textTransform: 'capitalize'}}>
+            {firstName}
           </Link>
-          <button onClick={handleLogout}  className="btn btn-outline-light mx-3 ">
+          <button
+            onClick={handleLogout}
+            className="btn btn-outline-light mx-3 "
+          >
             Logout <i class="fa-solid fa-arrow-right-from-bracket"></i>
           </button>
         </>
@@ -35,19 +45,17 @@ function Navbar(props) {
     } else {
       return (
         <>
-        <Link to="/login" className=" nav-link mx-3">
+          <Link to="/login" className=" nav-link mx-3">
             Login
           </Link>
-          <Link to="/signup" className="nav-link mx-3">
+          {/* <Link to="/signup" className="nav-link mx-3">
             Sign-Up
-          </Link>
-        </>   
+          </Link> */}
+        </>
       );
     }
-  }
+  };
 
-
-          
   return (
     <div
       class="navbar navbar-dark navbar-expand-md py-3 px-3 sticky-top"
@@ -94,7 +102,4 @@ function Navbar(props) {
   );
 }
 
-Navbar.defaultProps = {
-  isLoggedIn: true,
-};
 export default Navbar;

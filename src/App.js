@@ -8,7 +8,7 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
 
 // import of components
-import Navbar from "./components/Navbar2";
+import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Forgotpwd from "./components/Forgotpwd";
 
@@ -43,7 +43,7 @@ function App() {
           <Route path='/' element={<Home/>}/>
           <Route path='/about'  element={<About />} />
           <Route path='/contact' element={<Contact />}/>
-          <Route path='/feedback/:product' element={<FeedbackPage />} />
+          <Route path='/feedback' element={<FeedbackPage />} />
           <Route path='/login' element={<UserLogin />} />
           <Route path='/signup' element={<Signup />} />
           <Route path='/profile' element={<UserProfilePage/> } />

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Axios from "axios";
 import Cookies from "js-cookie";
+import { Link } from "react-router-dom";
+
 function UserProfilePage() {
   const [user, setUser] = useState({});
   const [retrieved, setRetrieved] = useState(false);
@@ -124,11 +126,11 @@ function UserProfilePage() {
           </div>
         </div>
 
-        <a href={`./edit-user/${user._id}`}>
+        <Link to={`/edit-user`} state= {{user: user}}>
           <button className="btn btn-warning px-4">
             <i class="fa-solid fa-pencil fa-lg me-3"></i> Edit Profile
           </button>
-        </a>
+        </Link>
       </div>
     </div>
   );

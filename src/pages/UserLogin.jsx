@@ -22,19 +22,23 @@ function UserLogin() {
         if (res.status === 200) {
           alert("Login Successful");
           // make a cookie and store user details
-          Cookies.set("userid", res.data.user._id, { expires: 10 });
+          Cookies.set("userid", res.data.user._id, { expires: 10000 });
+          Cookies.set("firstname", res.data.user.firstName, { expires: 10000 });
 
           window.location.href = "./#/profile";
         } else {
           alert(res.error);
         }
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.log("Error: ", err));
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
+    <div className="row align-items-center" style={{ minHeight: "75vh" }}>
+      <form
+        className="col row align-items center h-100"
+        onSubmit={handleSubmit}
+      >
         <Login
           getState={getState}
           heading="User"

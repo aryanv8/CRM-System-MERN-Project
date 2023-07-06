@@ -11,7 +11,7 @@ function Login(props){
         return props.getState(data);
     }
     return(
-        <div className='container-fluid login'>
+        <div className='container-fluid col login'>
             <div className='container bg-dark'>
                 <h2>{props.heading} Login</h2>
                 <div className="mb-3 mt-4">
