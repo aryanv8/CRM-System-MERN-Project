@@ -235,7 +235,7 @@ function FeedbackPage() {
               </div>
               <div className="col-md-10 col-12 p-0">
                 <input
-                  style={{ borderColor: nameError ? "red" : "" }}
+                  style={{ textTransform: "capitalize" }}
                   type="text"
                   id="name"
                   name="name"
