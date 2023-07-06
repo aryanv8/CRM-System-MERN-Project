@@ -3,6 +3,8 @@ import emailjs from '@emailjs/browser';
 import '../styles/Forgotpwd.css';
 import { ToastContainer, toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
+import Axios from "axios";
+import md5 from "md5";
 function Forgotpwd(){
 const[mail,setMail]=useState('');
 const[cpwd,setCpwd]=useState('');
@@ -66,7 +68,7 @@ const handleclick=()=>{
             theme: "light",
             });
     }
-    else if(ch!=eotp){
+   /* else if(ch!=eotp){
         toast.error('OTP not match. re-enter otp', {
             position: "top-right",
             autoClose: 5000,
@@ -76,19 +78,34 @@ const handleclick=()=>{
             draggable: true,
             progress: undefined,
             theme: "light",
-            });}
+            });}*/
     else{
         //backend process
-        toast.success('password changed successfuly', {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-            });}
+        const formData = new FormData();
+        formData.append("email", mail);
+    formData.append("password", md5(cpwd));
+    Axios.put("http://localhost:4000/user/update-password", formData)
+      .then((res) => {
+        if (res.status === 200) {
+            toast.success('password changed successfuly', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+                });
+          window.location.href = "./#/login";
+        } else {
+          alert(res.error);
+        }
+      })
+      .catch((err) => console.log(err));
+
+       
+        }
 }
 
     return( <div className='container-fluid forgotpwd'>
