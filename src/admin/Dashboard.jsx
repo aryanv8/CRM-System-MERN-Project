@@ -1,5 +1,6 @@
 import React, { useState }from 'react'
 import { Link } from 'react-router-dom';
+import Cookies from "js-cookie";
 
 //importing chart pakage
 import Chart from "react-apexcharts";
@@ -172,6 +173,11 @@ function Dashboard() {
         ]
       })
     
+    const auth = Cookies.get('userid');
+    if(auth !== 'admin'){
+      window.location.href = "./";
+    }
+    else{
     return (
     <div className='container-fluid dashboard'>
         <h1 className='mt-3 mb-3 text-primary'>Welcome Admin!</h1>
@@ -186,7 +192,7 @@ function Dashboard() {
                     <Link to='../products' className='nav-link'><i className="fa-solid fa-cart-plus fa-xl" style={{color: '#ffffff'}}></i> Products</Link>
                 </li>
                 <li className="nav-item mb-2">
-                    <Link to='./show-feedback' className='nav-link'><i className="fa-solid fa-comment fa-xl" style={{color: '#ffffff'}}></i> Feedback's</Link>
+                    <Link to='../feedbackshow' className='nav-link'><i className="fa-solid fa-comment fa-xl" style={{color: '#ffffff'}}></i> Feedback's</Link>
                 </li>
                 <li className="nav-item mb-2">
                     <Link to='../insights' className='nav-link'><i className="fa-solid fa-chart-line fa-xl" style={{color: '#ffffff'}}></i> Insights</Link>
@@ -244,6 +250,7 @@ function Dashboard() {
         </div>
     </div>
   )
+  }
 }
 
 export default Dashboard

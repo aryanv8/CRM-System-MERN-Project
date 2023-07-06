@@ -28,7 +28,7 @@ import ViewProduct from "./pages/ViewProduct";
 import Dashboard from "./admin/Dashboard";
 import Customers from "./admin/Customers";
 import Insights from "./admin/Insights";
-
+import FeedBackShow from "./admin/FeedBackShow";
 
 const product="apple";
 function App() {
@@ -56,6 +56,7 @@ function App() {
           <Route path='/dashboard' element={<Dashboard />} ></Route>
           <Route path='/customers' element={<Customers />} ></Route>
           <Route path='/insights' element={<Insights />} ></Route>
+          <Route path='/feedbackshow' element={<FeedBackShow />} ></Route>
         </Routes>
         
       </Router>

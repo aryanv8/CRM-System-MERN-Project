@@ -1,10 +1,25 @@
-import React,{useState} from 'react';
+import React,{useState, useEffect} from 'react';
 import '../styles/Insights.css';
-
 import Chart from "react-apexcharts";
+import  Axios from 'axios';
 
 function Insights() {
+  const [data, setData] = useState([]);
 
+  useEffect(() => {
+    Axios.get("http://localhost:4000/admin/insights")
+    .then((res) => {
+      if(res.status === 200){
+        setData(res.data.insights);
+      }
+      else{
+        Promise.reject();
+      }
+    })
+    .catch((err) => alert(err));
+  }, [])
+  
+  console.log(data.companyCount);
   //backend counting data:
   let maleCount = 200;
   let femaleCount = 50;

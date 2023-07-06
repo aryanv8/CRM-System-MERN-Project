@@ -1,5 +1,5 @@
 import React,{ useState,useEffect } from 'react';
-import CustomerTableRow from './CustomerTableRow'
+import Axios from "axios";
 
 
 function Customers() {
@@ -9,15 +9,35 @@ function Customers() {
 
   useEffect(() => {
     //backend Axios using
+    Axios.get("http://localhost:4000/user/all")
+    .then((res)=>{
+      if(res.status === 200){
+        setResData(res.data.users)
+      }
+      else{
+        Promise.reject();
+      }
+    })
+    .catch((err)=>alert(err));
   }, [])
+//  console.log(resData);
+ 
+ //showData function not working properly 
+  // const showData= () => {
+  //   return resData.users.map((val,ind)=>{
+  //     return <CustomerTableRow obj={val} key={ind} />
+  //   })
+  // }
   
-  
-  const tableData = () =>{
-    // return resData.map((val,ind)=>{
-    //   return <CustomerTableRow obj={val} key={ind} />
-    // })
-    return <CustomerTableRow />
+  function handleView(){
+    alert("not working");
   }
+  const handleDelete = () =>{
+    //backend process
+    alert("sure want to delete");
+  }
+
+
 
   return (
     <div className='container-fluid table-responsive-sm customers'>
@@ -40,9 +60,25 @@ function Customers() {
             <th>Action</th>
           </tr>
         </thead>
-
+        
         <tbody>
-          {tableData()}
+          {
+          
+          resData.map((data) => (
+          <tr>
+            
+              <td>{data.firstName+ " "+ data.lastName}</td>
+              <td>{data.email}</td>
+              <td>{data.phone}</td>
+              <td>{data.company}</td>
+              <td>{data.country}</td>
+              <td>
+                  <button className='btn btn-warning' onClick={handleView}><i class="fa-solid fa-eye"></i> View</button>{" "}
+                  <button className='btn btn-danger' onClick={handleDelete}><i class="fa-solid fa-trash-can" style={{color: "#ffffff"}}></i> Delete</button>
+              </td>
+          </tr>
+          ))
+          }
         </tbody>
 
       </table>

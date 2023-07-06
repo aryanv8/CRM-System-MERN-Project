@@ -3,6 +3,8 @@ import emailjs from '@emailjs/browser';
 import '../styles/Forgotpwd.css';
 import { ToastContainer, toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
+import Axios from "axios";
+import md5 from "md5";
 function Forgotpwd(){
 const[mail,setMail]=useState('');
 const[cpwd,setCpwd]=useState('');
@@ -66,7 +68,7 @@ const handleclick=()=>{
             theme: "light",
             });
     }
-    else if(ch!=eotp){
+   else if(ch!=eotp){
         toast.error('OTP not match. re-enter otp', {
             position: "top-right",
             autoClose: 5000,
@@ -79,16 +81,22 @@ const handleclick=()=>{
             });}
     else{
         //backend process
-        toast.success('password changed successfuly', {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-            });}
+        const formData = new FormData();
+        formData.append("email", mail);
+    formData.append("password", md5(cpwd));
+    Axios.put("http://localhost:4000/user/update-password", formData)
+      .then((res) => {
+        if (res.status === 200) {
+           alert("password updated");
+            window.location.href = "./#/login" 
+        } else {
+          alert(res.error);
+        }
+      })
+      .catch((err) => console.log(err));
+
+       
+        }
 }
 
     return( <div className='container-fluid forgotpwd'>
@@ -103,12 +111,12 @@ const handleclick=()=>{
 <br/><br/>
 <form className='container bg-dark' onSubmit={handleclick}>
     <h1>Reset password</h1>
-    <label for="cpwd" className="form-label float-start">Confirm Password</label>
-    <input type="password" id="cpwd" className="form-control" onChange={(e)=>{setCpwd(e.target.value)}}/> 
+    <label for="cpwd" className="form-label float-start" >Confirm Password</label>
+    <input type="password" id="cpwd" className="form-control" onChange={(e)=>{setCpwd(e.target.value)}} minLength={8} maxLength={16} required /> 
     <label for="rpwd" className="form-label float-start">Re Enter Password</label>
-    <input type="password" id="rpwd" className="form-control"  onChange={(e)=>{setRpwd(e.target.value)}}/> 
+    <input type="password" id="rpwd" className="form-control"  onChange={(e)=>{setRpwd(e.target.value)}} minLength={8} maxLength={16} required /> 
     <label for="eotp" className="form-label float-start">Enter OTP</label>
-    <input type="password" id="eotp" className="form-control"  onChange={(e)=>{setEotp(e.target.value)}}/> 
+    <input type="password" id="eotp" className="form-control"  onChange={(e)=>{setEotp(e.target.value)}} required/> 
     <button type='submit' className='btn btn-outline-warning w-50 mt-4' value='Submit' >Reset</button>
     <Link to="/login">Login</Link>
 </form>

@@ -2,11 +2,9 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 
 function CustomerTableRow(props) {
-
-    //Object Destruction 
-    // const {_id,name,email,phoneno,company,country} = props.obj;
-    const {name,email,phoneno,company,country} = {name:"sudhankumar",email:"sudhankumar.r2020@vitstudent.ac.in",phoneno:"9025051866",company:"VIT",country:"India"};
-
+    //Object Destruction
+    const {_id, firstName, lastName, email, phone, dob, gender, image, company, jobTitle, country, address, password} = props.obj;
+    
     //Deleting user details in backend
     const handleDelete = () =>{
         //backend process
@@ -15,9 +13,9 @@ function CustomerTableRow(props) {
 
     return (
         <tr>
-            <td>{name}</td>
+            <td>{firstName}</td>
             <td>{email}</td>
-            <td>{phoneno}</td>
+            <td>{phone}</td>
             <td>{company}</td>
             <td>{country}</td>
             <td>

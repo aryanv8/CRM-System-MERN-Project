@@ -1,0 +1,29 @@
+
+@media(min-width:568px){
+    .end{
+        margin-left: auto;
+    }
+}
+
+@media(max-width:768px){
+    #post{
+        width: 100%;
+    }
+}
+.darkerfeed{
+    border: 3px solid #ecb21f;
+    background-color: black;
+
+    border-radius: 5px;
+    padding-left: 40px;
+    padding-right: 30px;
+    padding-top: 10px;
+}
+#pn{
+    color: white;
+    font-weight: bold;
+}
+
+
+
+
