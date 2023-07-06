@@ -1,5 +1,6 @@
 import React,{ useState,useEffect } from 'react';
-import CustomerTableRow from './CustomerTableRow'
+import CustomerTableRow from './CustomerTableRow';
+import Axios from "axios";
 
 
 function Customers() {
@@ -9,14 +10,24 @@ function Customers() {
 
   useEffect(() => {
     //backend Axios using
+    Axios.get("http://localhost:4000/user/all")
+    .then((res)=>{
+      if(res.status === 200){
+        setResData(res.data)
+      }
+      else{
+        Promise.reject();
+      }
+    })
+    .catch((err)=>alert(err));
   }, [])
-  
-  
-  const tableData = () =>{
-    // return resData.map((val,ind)=>{
-    //   return <CustomerTableRow obj={val} key={ind} />
-    // })
-    return <CustomerTableRow />
+ console.log(resData);
+ 
+ //showData function not working properly 
+  const showData= () => {
+    return resData.users.map((val,ind)=>{
+      return <CustomerTableRow obj={val} key={ind} />
+    })
   }
 
   return (
@@ -40,9 +51,9 @@ function Customers() {
             <th>Action</th>
           </tr>
         </thead>
-
+        
         <tbody>
-          {tableData()}
+          {showData}
         </tbody>
 
       </table>
