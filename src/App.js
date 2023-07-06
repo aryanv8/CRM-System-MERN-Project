@@ -30,7 +30,6 @@ import Customers from "./admin/Customers";
 import Insights from "./admin/Insights";
 import FeedBackShow from "./admin/FeedBackShow";
 
-const product="apple";
 function App() {
   return (
     <div className="App">
