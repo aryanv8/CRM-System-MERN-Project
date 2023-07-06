@@ -183,7 +183,7 @@ function Dashboard() {
                     <Link to='../customers' className='nav-link'><i className="fa-solid fa-user-tag fa-xl" style={{color: '#ffffff'}}></i> Customers</Link>
                 </li>
                 <li className="nav-item mb-2">
-                    <Link to='./products' className='nav-link'><i className="fa-solid fa-cart-plus fa-xl" style={{color: '#ffffff'}}></i> Products</Link>
+                    <Link to='../products' className='nav-link'><i className="fa-solid fa-cart-plus fa-xl" style={{color: '#ffffff'}}></i> Products</Link>
                 </li>
                 <li className="nav-item mb-2">
                     <Link to='./show-feedback' className='nav-link'><i className="fa-solid fa-comment fa-xl" style={{color: '#ffffff'}}></i> Feedback's</Link>

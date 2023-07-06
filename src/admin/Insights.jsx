@@ -349,7 +349,7 @@ function Insights() {
 
       </div>
 
-      <div className='row'>
+      <div className='row mb-4'>
         <div className='col-sm-12 col-md-5 graphs mx-auto'>
           <h4 className='pt-2 pl-5'>Age</h4>
           <Chart options={age.options} series={age.series} type="bar"/>
