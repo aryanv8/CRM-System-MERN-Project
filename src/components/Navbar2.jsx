@@ -16,7 +16,38 @@ function Navbar2() {
         window.location.href = "/";
       };
 
+    if(auth === "admin"){
+      return(
+      <div
+        class="navbar navbar-dark navbar-expand-md py-3 px-3 sticky-top"
+        id={expandNavbar ? "open" : "close"}
+        style={{ backgroundColor: "rgba(0, 0, 0, 1)" }}
+      >
+        <Link to="./dashboard" className="navbar-brand h1">
+          {" "}<i class="fa-solid fa-users-gear fa-xl" style={{ color: "#f0f2f5;" }}></i>{" "}
+          CRM-System
+        </Link>
 
+        <button
+          class="navbar-toggler"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbar"
+          onClick={() => {
+            setExpandNavbar((prev) => !prev);
+          }}
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="navbar-collapse collapse mr-0 " id="navbar" style={{ justifyContent: "flex-end" }}>
+          <button className="btn btn-outline-light mx-3" onClick={handleLogout}>
+            Logout <i class="fa-solid fa-arrow-right-from-bracket"></i>
+          </button>
+        </div>
+      </div>
+      )
+    }
+    else{  
       return (
       <div
         class="navbar navbar-dark navbar-expand-md py-3 px-3 sticky-top"
@@ -69,6 +100,7 @@ function Navbar2() {
         </div>
       </div>
     )
+    }
 }
 
 export default Navbar2

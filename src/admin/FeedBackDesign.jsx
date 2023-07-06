@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 import "../styles/FeedBackDesign.css"
+
 function FeedBackDesign(props){
 
     //Object Destruction 

@@ -3,9 +3,8 @@ import { Link } from 'react-router-dom';
 
 function CustomerTableRow(props) {
     //Object Destruction
-    const data = props.obj;
-    // const {name,email,phoneno,company,country} = {name:"sudhankumar",email:"sudhankumar.r2020@vitstudent.ac.in",phoneno:"9025051866",company:"VIT",country:"India"};
-
+    const {_id, firstName, lastName, email, phone, dob, gender, image, company, jobTitle, country, address, password} = props.obj;
+    
     //Deleting user details in backend
     const handleDelete = () =>{
         //backend process
@@ -14,11 +13,11 @@ function CustomerTableRow(props) {
 
     return (
         <tr>
-            <td>{data.name}</td>
-            <td>{data.email}</td>
-            <td>{data.phoneno}</td>
-            <td>{data.company}</td>
-            <td>{data.country}</td>
+            <td>{firstName}</td>
+            <td>{email}</td>
+            <td>{phone}</td>
+            <td>{company}</td>
+            <td>{country}</td>
             <td>
                 <Link to='../profile' className='btn btn-warning'><i class="fa-solid fa-eye"></i> View</Link>{" "}
                 <button className='btn btn-danger' onClick={handleDelete}><i class="fa-solid fa-trash-can" style={{color: "#ffffff"}}></i> Delete</button>
