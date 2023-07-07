@@ -84,7 +84,7 @@ function Navbar2() {
               //logged in part
               <div className="navbar-nav">
                   <Link to='/products' className="nav-link mx-3">Products</Link>
-                  <Link to='/profile' className="nav-link mx-3">{Cokies.get('firstname')}</Link>
+                  <Link to='/profile' className="nav-link mx-3" style={{textTransform: 'capitalize'}}>{Cokies.get('firstname')}</Link>
                   <button className="btn btn-outline-light mx-3" onClick={handleLogout}>
                       Logout <i class="fa-solid fa-arrow-right-from-bracket"></i>
                   </button>
