@@ -36,11 +36,8 @@ function UserLogin() {
   };
 
   return (
-    <div className="row align-items-center" style={{ minHeight: "75vh" }}>
-      <form
-        className="col row align-items center h-100"
-        onSubmit={handleSubmit}
-      >
+    <div>
+      <form onSubmit={handleSubmit}>
         <Login
           getState={getState}
           heading="User"
