@@ -1,6 +1,7 @@
 import React,{useEffect, useState} from 'react';
 import { useParams, useLocation,Link } from "react-router-dom";
 import Axios from "axios";
+import { USER_SERVER } from '../constants';
 
 function ViewProf(){
     const location = useLocation();
@@ -13,7 +14,7 @@ function ViewProf(){
             const uid = location.state._id;
             setUid(uid);
             const response = await Axios.get(
-              `http://localhost:4000/user/profile?id=${uid}`
+              `${USER_SERVER}/profile?id=${uid}`
             );
             setUser(response.data.user);
           } catch (error) {
@@ -30,7 +31,7 @@ return( <div>
       <h1 className="text-center display-4 my-5 text-white">Profile</h1>
       <div className="text-center my-4">
         <img
-          src={`http://localhost:4000/user/image/${user.image}`}
+          src={`${USER_SERVER}/image/${user.image}`}
           alt="User Avatar"
           className="rounded-circle"
           style={{ width: "250px", height: "250px" }}

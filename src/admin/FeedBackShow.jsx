@@ -2,6 +2,7 @@ import React,{ useState,useEffect } from 'react';
 import "../styles/FeedBackDesign.css"
 import { useParams,useLocation} from "react-router-dom";
 import Axios from "axios";
+import { ADMIN_SERVER } from '../constants';
 
 function FeedBackShow() {
 
@@ -13,7 +14,7 @@ const location=useLocation();
       setRec(location.state.name);
       setSearch(location.state.name)
 
-      Axios.get("http://127.0.0.1:4000/admin/feedback/all")
+      Axios.get(`${ADMIN_SERVER}/feedback/all`)
       .then((res)=>{
         if(res.status === 200){
           setResData(res.data.feedbacks);
