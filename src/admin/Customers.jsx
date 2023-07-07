@@ -62,8 +62,8 @@ function Customers() {
       </div>
 
       <table className='table mx-auto border shadow table-bordered table-dark table-hover rounded'
-      style={{ borderRadius: "10px" }}>
-        <thead>
+      style={{ borderRadius: "10px", marginTop: "7rem"}}>
+        <thead className='table-secondary '>
           <tr>
             <th>Name</th>
             <th>Email</th>
