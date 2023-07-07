@@ -6,7 +6,7 @@ import { useLocation } from "react-router-dom";
 import md5 from "md5";
 
 import Axios from "axios";
-
+import Cokies from "js-cookie";
 function EditUser() {
   const location = useLocation();
 
@@ -59,7 +59,13 @@ function EditUser() {
         if (res.status === 200) {
           alert("Profile Updated Successfully");
           // Navigate to login page
-          window.location.href = "/#/profile";
+          const auth = Cokies.get('userid');
+          if(auth === "admin"){
+            window.location.href="./#/customers"
+          }
+          else{
+window.location.href="./#/profile";
+          }
         }
       })
       .catch((err) => {

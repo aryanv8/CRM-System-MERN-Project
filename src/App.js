@@ -29,6 +29,7 @@ import Dashboard from "./admin/Dashboard";
 import Customers from "./admin/Customers";
 import Insights from "./admin/Insights";
 import FeedBackShow from "./admin/FeedBackShow";
+import ViewProf from "./admin/ViewProf";
 
 function App() {
   return (
@@ -51,6 +52,7 @@ function App() {
           <Route path="/admin-login" element={<AdminLogin /> } ></Route>
           <Route path="/forgotpwd" element={<Forgotpwd />} ></Route>
           <Route path="/products" element={<ViewProduct />} ></Route>
+          <Route path="/view-profile" element={<ViewProf />} ></Route>
 
           <Route path='/dashboard' element={<Dashboard />} ></Route>
           <Route path='/customers' element={<Customers />} ></Route>

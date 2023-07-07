@@ -1,6 +1,6 @@
 import React,{ useState,useEffect } from 'react';
 import Axios from "axios";
-
+import { useParams, Link } from "react-router-dom";
 
 function Customers() {
   
@@ -32,9 +32,21 @@ function Customers() {
   function handleView(){
     alert("not working");
   }
-  const handleDelete = () =>{
+  const handleDelete = (id) =>{
     //backend process
-    alert("sure want to delete");
+    Axios.delete("http://127.0.0.1:4000/user/delete/"+id)
+    .then((res) => {
+        console.log(res);
+        if (res.status === 200){
+            alert('deleted Successful')
+            // Navigate to login page
+            window.location.reload();
+        }
+        else{
+          alert("error");
+        }
+    })
+    .catch((err) => alert(err))
   }
 
 
@@ -73,8 +85,16 @@ function Customers() {
               <td>{data.company}</td>
               <td>{data.country}</td>
               <td>
-                  <button className='btn btn-warning' onClick={handleView}><i class="fa-solid fa-eye"></i> View</button>{" "}
-                  <button className='btn btn-danger' onClick={handleDelete}><i class="fa-solid fa-trash-can" style={{color: "#ffffff"}}></i> Delete</button>
+                  <button className='btn btn-warning'>
+                  <Link
+                  to={"/view-profile"}
+                  state={data}
+                  className="nav-link"
+                >
+                 <i class="fa-solid fa-eye"></i> View
+                </Link>
+                    </button>{" "}
+                  <button className='btn btn-danger' onClick={()=>{handleDelete(data._id)}}><i class="fa-solid fa-trash-can" style={{color: "#ffffff"}}></i> Delete</button>
               </td>
           </tr>
           ))
