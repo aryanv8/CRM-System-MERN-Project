@@ -32,7 +32,10 @@ function UserLogin() {
           alert(res.error);
         }
       })
-      .catch((err) => console.log("Error: ", err));
+      .catch((err) => {
+        console.log("Error: ", err)
+        alert("Invalid Credentials");
+      });
   };
 
   return (
