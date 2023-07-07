@@ -2,16 +2,19 @@ import React from "react";
 import { useParams, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Cokies from "js-cookie";
 function ViewProduct() {
   const [data, setData] = useState([]);
-
+const[redire,setRed]=useState(false);
   useEffect(() => {
+    if(auth==="admin")
+setRed(true);
     const url = "https://dummyjson.com/products";
     axios
       .get(url)
       .then((res) => {
         if (res.status === 200) {
-          console.log(res);
+          console.log(res); 
           setData(res.data.products);
           console.log(data);
         } else {
@@ -22,6 +25,7 @@ function ViewProduct() {
         alert(err);
       });
   }, []);
+  const auth = Cokies.get('userid');
 
   return (
     <div className="row container-fluid mx-auto">
@@ -52,13 +56,19 @@ function ViewProduct() {
             </div>
             <div className="card-footer bg-dark border-0 border-end">
               <button className="btn btn-outline-warning w-100 mb-1 col">
-                <Link
+              { (redire)?<Link
+                  to={"/feedbackshow"}
+                  state={{ name: data.title, id: data.id }}
+                  className="nav-link"
+                >
+                  View Feedback
+                </Link>:  <Link
                   to={"/feedback"}
                   state={{ name: data.title, id: data.id }}
                   className="nav-link"
                 >
                   Feedback
-                </Link>
+                </Link>}
               </button>
             </div>
           </div>
