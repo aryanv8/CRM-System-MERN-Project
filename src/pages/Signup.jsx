@@ -3,17 +3,20 @@ import { Link } from 'react-router-dom';
 import UserForm from '../components/UserForm'
 import Axios from 'axios'
 import md5 from 'md5'
+import { USER_SERVER } from '../constants';
+
 
 function Signup() {
 
     //data=input field data
-    const [data, setData] = useState([]); 
+    // const [data, setData] = useState([]); 
 
-    const getState = (childData) =>{
-        setData(childData);
-    }
+    // const getState = (childData) =>{
+    //     setData(childData);
+    // }
 
-    const handleSubmit = () =>{
+    const handleSubmit = (data) => {
+        // setData(data);
         //backend process to insert data
 
         console.log(data);
@@ -35,29 +38,32 @@ function Signup() {
         formData.append("address", data[11]);
 
         let password = data[3];
-        password = md5(password);
+        if (password) {
+            password = md5(password);
+        }
 
         formData.append("password", password);
 
         console.log(formData.get("image"));
         
-        Axios.post("http://127.0.0.1:4000/user/register", formData)
-            .then((res) => {
-                console.log(res);
-                if (res.status === 200){
-                    alert('Registration Successful')
-                    // Navigate to login page
-                    window.location.href = '/#/login'
-                }
-            })
-            .catch((err) => alert(err))
+        Axios.post(`${USER_SERVER}/register`, formData)
+          .then((res) => {
+            console.log(res);
+            if (res.status === 200) {
+              alert("Registration Successful");
+              // Navigate to login page
+              window.location.href = "/#/login";
+            }
+          })
+          .catch((err) => alert(err));
 
     }
 
     return (
         <div>
-            <form onSubmit={handleSubmit}>
-                <UserForm getState={getState} btnName='Create Account' heading='Registration Form' 
+            <form>
+                <UserForm btnName='Create Account' heading='Registration Form' 
+                    handleSubmit = {handleSubmit}
                 login = {
                             <div className='mb-5 mt-3' id='login'>
                                 <Link  to='/login' className='float-end'>Already have a account? Login</Link>

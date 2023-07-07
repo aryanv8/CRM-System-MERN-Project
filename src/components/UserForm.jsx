@@ -16,6 +16,8 @@ function UserForm(props) {
   const [country, setCountry] = useState("");
   const [address, setAddress] = useState("");
 
+  const [handleSubmit, setHandleSubmit] = useState(() => {});
+
   //storing values in array
   const data = [
     fname,
@@ -58,11 +60,14 @@ function UserForm(props) {
     props.jobValue && setJob(props.jobValue);
     props.countryValue && setCountry(props.countryValue);
     props.addressValue && setAddress(props.addressValue);
+
   }, [props.genderValue]);
 
-  const formSubmit = () => {
-    props.getState(data);
+  const formSubmit = (e) => {
+    e.preventDefault()
+    // props.getState(data);
     console.log("Inside UserForm: ", data);
+    props.handleSubmit(data)
   };
 
   return (
@@ -173,6 +178,7 @@ function UserForm(props) {
               value="male"
               required
               checked={gender === "male"}
+              // checked = {props.genderValue === "male"}
               // checked
               onChange={(e) => setGender(e.target.value)}
             />
@@ -443,7 +449,7 @@ function UserForm(props) {
         {props.terms}
 
         <button
-          type="submit"
+          // type="submit"
           className="btn btn-outline-warning w-50 mt-4"
           onClick={formSubmit}
         >

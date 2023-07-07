@@ -14,16 +14,17 @@ function EditUser() {
   //setting with already saved values
   const [obj, setObj] = useState({});
   //setting updated values
-  const [updatedData, setUpdatedData] = useState([]);
+  // const [updatedData, setUpdatedData] = useState([]);
 
   //getting id of particular user form url
   // const {id} = useParams();
 
-  const getState = (childData) => {
-    setUpdatedData(childData);
-  };
+  // const getState = (childData) => {
+  //   setUpdatedData(childData);
+  // };
 
-  const handleSubmit = () => {
+  const handleSubmit = (updatedData) => {
+
     //backend process to update data
 
     console.log("updated data: ", updatedData);
@@ -54,7 +55,7 @@ function EditUser() {
     }
     console.log("Form Data: ", formData.get("image"));
     //backend process
-    Axios.post(`http://127.0.0.1:4000/user/update`, formData)
+    Axios.post(`${USER_SERVER}/update`, formData)
       .then((res) => {
         console.log(res);
         if (res.status === 200) {
@@ -94,7 +95,7 @@ window.location.href="./#/profile";
     <div>
       <form onSubmit={handleSubmit}>
         <UserForm
-          getState={getState}
+          // getState={getState}
           btnName="Update"
           heading="Update Profile"
           fnameValue={obj.firstName}
@@ -111,6 +112,7 @@ window.location.href="./#/profile";
           passwordPlaceholder="Enter new password, if you want to change it"
           imgLabel="Change Profile Picture (Optional)"
           genderValue={obj.gender}
+          handleSubmit = {handleSubmit}
         />
       </form>
     </div>

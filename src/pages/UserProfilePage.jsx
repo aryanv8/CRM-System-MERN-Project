@@ -33,9 +33,23 @@ function UserProfilePage() {
         const uid = await Cookies.get("userid");
         setUid(uid);
         const response = await Axios.get(
-          `http://127.0.0.1:4000/user/profile?id=${uid}`
+          `${USER_SERVER}/profile?id=${uid}`
         );
-        setUser(response.data.user);
+        setUser({
+          _id: response.data.user._id,
+          firstName: response.data.user.firstName,
+          lastName: response.data.user.lastName,
+          email: response.data.user.email,
+          phone: response.data.user.phone,
+          dob: new Date(response.data.user.dob).toLocaleDateString("en-GB"),
+          gender: response.data.user.gender,
+          image: response.data.user.image,
+          company: response.data.user.company,
+          jobTitle: response.data.user.jobTitle,
+          country: response.data.user.country,
+          address: response.data.user.address,
+
+        });
         setRetrieved(true);
       } catch (error) {
         console.log(error);
@@ -60,7 +74,7 @@ function UserProfilePage() {
           />
         </div>
         <div
-          className="justify-content-center borders text-start shadow mt-5 mb-3 p-4 bg-dark-subtle mx-auto container"
+          className="justify-content-center border text-start shadow mt-5 mb-3 p-4 bg-dark-subtle mx-auto container"
           style={{ borderRadius: "10px" }}
         >
           <div className="row m-3 fs-5">
@@ -126,7 +140,7 @@ function UserProfilePage() {
         </div>
 
         <Link to={`/edit-user`} state= {{user: user}}>
-          <button className="btn btn-warning px-4">
+          <button className="btn btn-outline-warning px-4">
             <i class="fa-solid fa-pencil fa-lg me-3"></i> Edit Profile
           </button>
         </Link>
