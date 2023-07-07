@@ -2,14 +2,13 @@ import React, { useEffect, useState } from "react";
 import Axios from "axios";
 import Cookies from "js-cookie";
 import { Link } from "react-router-dom";
+import { USER_SERVER } from "../../constants";
 
 function UserProfilePage() {
   const [user, setUser] = useState({});
   const [retrieved, setRetrieved] = useState(false);
   // eslint-disable-next-line
   const [uid, setUid] = useState(null);
-
-  const SERVER_URL_USER = "http://localhost:4000/user";
   
 
   const user1 = {
@@ -34,7 +33,7 @@ function UserProfilePage() {
         const uid = await Cookies.get("userid");
         setUid(uid);
         const response = await Axios.get(
-          `${SERVER_URL_USER}/profile?id=${uid}`
+          `${USER_SERVER}/profile?id=${uid}`
         );
         setUser(response.data.user);
         setRetrieved(true);
@@ -54,7 +53,7 @@ function UserProfilePage() {
         <h1 className="text-center display-4 my-5 text-white">Profile</h1>
         <div className="text-center my-4">
           <img
-            src={retrieved?`${SERVER_URL_USER}/image/${user.image}`: user.image}
+            src={retrieved?`${USER_SERVER}/image/${user.image}`: user.image}
             alt="User Avatar"
             className="rounded-circle"
             style={{ width: "250px", height: "250px" }}

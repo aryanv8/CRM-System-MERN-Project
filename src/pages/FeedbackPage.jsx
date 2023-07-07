@@ -6,6 +6,8 @@ import Cookies from "js-cookie";
 
 import axios from "axios";
 
+import { USER_SERVER } from "../../constants";
+
 function FeedbackPage() {
   const location = useLocation();
   // const param = useParams();
@@ -125,7 +127,7 @@ function FeedbackPage() {
 
       // send the form data to the server
       axios
-        .post("http://localhost:4000/user/submit-feedback", formData)
+        .post(`${USER_SERVER}/submit-feedback`, formData)
         .then((res) => {
           if (res.status === 200) {
             alert(res.data.message);
