@@ -12,7 +12,7 @@ function Customers() {
 
   useEffect(() => {
     //backend Axios using
-    Axios.get("http://127.0.0.1:4000/user/all")
+    Axios.get(`${USER_SERVER}/all`)
     .then((res)=>{
       if(res.status === 200){
         setResData(res.data.users)
@@ -34,7 +34,7 @@ function Customers() {
   
   const handleDelete = (id) =>{
     //backend process
-    Axios.delete("http://127.0.0.1:4000/user/delete/"+id)
+    Axios.delete(`${USER_SERVER}/delete/`+id)
     .then((res) => {
         console.log(res);
         if (res.status === 200){
