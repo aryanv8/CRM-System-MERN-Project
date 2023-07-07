@@ -34,7 +34,6 @@ function Customers() {
   
   const handleDelete = (id) =>{
     //backend process
-    alert("sure want to delete")
     Axios.delete("http://127.0.0.1:4000/user/delete/"+id)
     .then((res) => {
         console.log(res);

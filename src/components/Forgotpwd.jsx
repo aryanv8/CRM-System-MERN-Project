@@ -91,7 +91,7 @@ function Forgotpwd() {
       const formData = new FormData();
       formData.append("email", mail);
       formData.append("password", md5(cpwd));
-      Axios.put(`${USER_SERVER}/update-password`, formData)
+      Axios.put(`http://127.0.0.1:4000/user/update-password`, formData)
         .then((res) => {
           if (res.status === 200) {
             alert("password updated");
