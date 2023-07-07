@@ -1,5 +1,7 @@
 import React,{ useState,useEffect } from 'react';
 import Axios from "axios";
+import { USER_SERVER } from "../constants";
+import { Link } from "react-router-dom";
 
 
 function Customers() {
@@ -9,7 +11,7 @@ function Customers() {
 
   useEffect(() => {
     //backend Axios using
-    Axios.get(`${USER_SERVER}/all`)
+    Axios.get("http://127.0.0.1:4000/user/all")
     .then((res)=>{
       if(res.status === 200){
         setResData(res.data.users)

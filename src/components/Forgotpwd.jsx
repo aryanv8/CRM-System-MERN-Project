@@ -5,7 +5,7 @@ import { ToastContainer, toast } from "react-toastify";
 import { Link } from "react-router-dom";
 import Axios from "axios";
 import md5 from "md5";
-import { USER_SERVER } from "../../constants";
+import { USER_SERVER } from "../constants";
 function Forgotpwd() {
   const [mail, setMail] = useState("");
   const [cpwd, setCpwd] = useState("");

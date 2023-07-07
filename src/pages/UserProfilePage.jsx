@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Axios from "axios";
 import Cookies from "js-cookie";
 import { Link } from "react-router-dom";
-import { USER_SERVER } from "../../constants";
+import { USER_SERVER } from "../constants";
 
 function UserProfilePage() {
   const [user, setUser] = useState({});
@@ -33,7 +33,7 @@ function UserProfilePage() {
         const uid = await Cookies.get("userid");
         setUid(uid);
         const response = await Axios.get(
-          `${USER_SERVER}/profile?id=${uid}`
+          `http://127.0.0.1:4000/user/profile?id=${uid}`
         );
         setUser(response.data.user);
         setRetrieved(true);
