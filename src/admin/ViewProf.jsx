@@ -37,8 +37,8 @@ return( <div>
         />
       </div>
       <div
-        className="justify-content-center border text-start shadow mt-5 mb-3 p-4 bg-dark-subtle mx-auto"
-        style={{ maxWidth: "600px", borderRadius: "10px" }}
+        className="justify-content-center border text-start shadow mt-5 mb-3 p-4 bg-dark-subtle mx-auto container"
+        style={{ borderRadius: "10px" }}
       >
         <div className="row m-3 fs-5">
           <div className="col-12 col-sm-6">

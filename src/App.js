@@ -8,7 +8,7 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
 
 // import of components
-import Navbar from "./components/Navbar";
+import Navbar from "./components/Navbar2";
 import Footer from "./components/Footer";
 import Forgotpwd from "./components/Forgotpwd";
 

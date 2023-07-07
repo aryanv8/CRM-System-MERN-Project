@@ -8,6 +8,7 @@ function Customers() {
   
   //result data setting
   const [resData,setResData] = useState([]);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     //backend Axios using
@@ -31,17 +32,14 @@ function Customers() {
   //   })
   // }
   
-  function handleView(){
-    alert("not working");
-  }
   const handleDelete = (id) =>{
     //backend process
+    alert("sure want to delete")
     Axios.delete("http://127.0.0.1:4000/user/delete/"+id)
     .then((res) => {
         console.log(res);
         if (res.status === 200){
             alert('deleted Successful')
-            // Navigate to login page
             window.location.reload();
         }
         else{
@@ -51,6 +49,7 @@ function Customers() {
     .catch((err) => alert(err))
   }
 
+ 
 
 
   return (
@@ -59,7 +58,7 @@ function Customers() {
       
       <div className="d-flex float-end m-3">
         <label for="search">Search here:</label>
-        <input className="me-2 form-control" type="search" placeholder="Search..." aria-label="Search" id='search'/>
+        <input className="me-2 form-control" type="search" placeholder="Search..." aria-label="Search" id='search' onChange={(e) => setSearch(e.target.value)}/>
       </div>
 
       <table className='table mx-auto border shadow table-bordered table-dark table-hover rounded'
@@ -78,7 +77,27 @@ function Customers() {
         <tbody>
           {
           
-          resData.map((data) => (
+          resData.filter((item)=>{
+            if(search == ""){
+              return item
+            }
+            else if(item.firstName.toLowerCase().includes(search.toLowerCase())){
+              return item
+            }
+            else if(item.email.toLowerCase().includes(search.toLowerCase())){
+              return item
+            }
+            else if(item.phone.includes(search)){
+              return item
+            }
+            else if(item.company.toLowerCase().includes(search.toLowerCase())){
+              return item
+            }
+            else if(item.country.toLowerCase().includes(search.toLowerCase())){
+              return item
+            }
+          })
+          .map((data) => (
           <tr>
             
               <td>{data.firstName+ " "+ data.lastName}</td>
