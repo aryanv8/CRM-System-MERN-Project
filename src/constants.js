@@ -10,7 +10,7 @@ export const SERVER = "http://localhost:4000";
  * @type {string}
  * @default "http://localhost:4000/users"
  */
-export const USER_SERVER = `${SERVER}/users`;
+export const USER_SERVER = `${SERVER}/user`;
 
 /**
  * @description Path to the admin server
