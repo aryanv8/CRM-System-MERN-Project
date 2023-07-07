@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import UserForm from "../components/UserForm";
 
 import { useLocation } from "react-router-dom";
+import { USER_SERVER } from "../../constants";
 import md5 from "md5";
 
 import Axios from "axios";
@@ -53,7 +54,7 @@ function EditUser() {
     }
     console.log("Form Data: ", formData.get("image"));
     //backend process
-    Axios.post("http://localhost:4000/user/update", formData)
+    Axios.post(`${USER_SERVER}/update`, formData)
       .then((res) => {
         console.log(res);
         if (res.status === 200) {

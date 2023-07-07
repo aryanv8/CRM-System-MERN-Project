@@ -1,13 +1,15 @@
 import React,{useState, useEffect} from 'react';
 import '../styles/Insights.css';
 import Chart from "react-apexcharts";
-import  Axios from 'axios';
+import Axios from 'axios';
+
+import { ADMIN_SERVER } from '../../constants';
 
 function Insights() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    Axios.get("http://localhost:4000/admin/insights")
+    Axios.get(`${ADMIN_SERVER}/insights`)
     .then((res) => {
       if(res.status === 200){
         setData(res.data.insights);

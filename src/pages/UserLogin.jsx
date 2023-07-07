@@ -4,6 +4,7 @@ import Login from "../components/Login";
 import Axios from "axios";
 import Cookies from "js-cookie";
 import md5 from "md5";
+import { USER_SERVER } from "../../constants";
 
 function UserLogin() {
   const [data, setData] = useState([]); //data=input field data
@@ -17,7 +18,7 @@ function UserLogin() {
     const formData = new FormData();
     formData.append("email", data[0]);
     formData.append("password", md5(data[1]));
-    Axios.post("http://localhost:4000/user/login", formData)
+    Axios.post(`${USER_SERVER}/login`, formData)
       .then((res) => {
         if (res.status === 200) {
           alert("Login Successful");

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import UserForm from '../components/UserForm'
 import Axios from 'axios'
 import md5 from 'md5'
+import { USER_SERVER } from '../../constants';
 
 function Signup() {
 
@@ -41,7 +42,7 @@ function Signup() {
 
         console.log(formData.get("image"));
         
-        Axios.post("http://127.0.0.1:4000/user/register", formData)
+        Axios.post(`${USER_SERVER}/register`, formData)
             .then((res) => {
                 console.log(res);
                 if (res.status === 200){
