@@ -127,7 +127,7 @@ function FeedbackPage() {
 
       // send the form data to the server
       axios
-        .post(`http://127.0.0.1:4000/user/submit-feedback`, formData)
+        .post(`${USER_SERVER}/submit-feedback`, formData)
         .then((res) => {
           if (res.status === 200) {
             alert(res.data.message);
