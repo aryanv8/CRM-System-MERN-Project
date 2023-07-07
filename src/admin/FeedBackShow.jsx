@@ -16,7 +16,7 @@ const location=useLocation();
       Axios.get("http://127.0.0.1:4000/admin/feedback/all")
       .then((res)=>{
         if(res.status === 200){
-          setResData(res.data.feedbacks);
+          setResData(res.data);
         }
         else{
           Promise.reject();
@@ -29,13 +29,15 @@ const location=useLocation();
   
   
   return (
-    <div className='container-fluid table-responsive-sm customers'>
-      <h2 style={{textAlign:"center"}} className='mt-3 mb-4 text-center text-white'>Feedback Page</h2>
-      <span className="d-flex float-end">
+    <div className='container-fluid mb-4'>
+      <h2 className='mt-3 mb-4 text-center text-white'>Products Feedback</h2>
+      
+      <div className="d-flex float-end mb-4">
         <label for="search">Search here:</label>
-        <input className="me-2 form-control" type="search" defaultValue={rec} placeholder="Search..." aria-label="Search" id='search' onChange={(e) => setSearch(e.target.value)}/>
-      </span>
-      <div className="col-sm-5 col-md-6 col-12 pb-4 mx-auto" >
+        <input className="me-2 form-control" type="search" placeholder="Search..." aria-label="Search" id='search' onChange={(e) => setSearch(e.target.value)}/>
+      </div>
+      
+      <div className="col-sm-5 col-md-6 col-12 pt-5 mx-auto" >
       {resData.filter((item)=>{
         
             if(search == ""){
@@ -70,7 +72,7 @@ const location=useLocation();
                 </div><br /></div>
 
             ))}</div>
-            <br/><br/>
+            
     </div>
   )
 }
