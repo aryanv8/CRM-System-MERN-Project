@@ -20,7 +20,8 @@ function Insights() {
       .catch((err) => alert(err));
   }, []);
 
-  console.log(data.companyCount);
+  console.log(data);
+  
   //backend counting data:
   let maleCount = 200;
   let femaleCount = 50;

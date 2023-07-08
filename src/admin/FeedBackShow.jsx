@@ -28,11 +28,8 @@ function FeedBackShow() {
 
   return (
     <div className="container-fluid table-responsive-sm customers">
-      <h2
-        style={{ textAlign: "center" }}
-        className="mt-3 mb-4 text-center text-white"
-      >
-        Feedback Page
+      <h2 className="mt-3 mb-4">
+        Product's Feedback
       </h2>
       <span className="d-flex float-end">
         <label for="search">Search here:</label>
@@ -46,7 +43,7 @@ function FeedBackShow() {
           onChange={(e) => setSearch(e.target.value)}
         />
       </span>
-      <div className="col-sm-5 col-md-6 col-12 pb-4 mx-auto">
+      <div className="col-sm-5 col-md-6 col-12 pt-5 mx-auto">
         {resData
           .filter((item) => {
             if (search == "") {
