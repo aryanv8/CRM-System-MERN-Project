@@ -3,7 +3,7 @@
  * @type {string}
  * @default "http://localhost:4000"
  */
-export const SERVER = "http://localhost:4000";
+export const SERVER = "http://13.232.232.132:4000";
 
 /**
  * @description Path to the user server
