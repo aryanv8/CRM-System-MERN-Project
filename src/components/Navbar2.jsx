@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import Cokies from "js-cookie";
+import { HOME_PAGE } from "../constants";
 
 function Navbar2() {
     const [expandNavbar, setExpandNavbar] = useState(false);
@@ -14,7 +15,7 @@ function Navbar2() {
     const handleLogout = () => {
         Cokies.remove("userid");
         Cokies.remove("firstname");
-        window.location.href = "/";
+        window.location.href = HOME_PAGE;
       };
 
     if(auth === "admin"){
