@@ -11,7 +11,7 @@ function Contact() {
   const sendEmail = (e) => {
     e.preventDefault();
 
-    emailjs.sendForm('service_hq7snzd', 'template_b8nht2f', form.current, 'feHkisclE7WJWJdBw')
+    emailjs.sendForm('service_hf5pzzg', 'template_gse9e6i', form.current, 'LMTGealAZ7vCqcmRt')
       .then((result) => {
           console.log(result.text);
           toast.success('message sent to admin 🙂', {
