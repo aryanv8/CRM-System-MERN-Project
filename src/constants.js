@@ -19,4 +19,5 @@ export const USER_SERVER = `${SERVER}/user`;
  */
 export const ADMIN_SERVER = `${SERVER}/admin`;
 
-export const HOME_PAGE = `https://aryanv8.github.io/crm-system/`;
+// export const HOME_PAGE = `https://aryanv8.github.io/crm-system/`;
+export const HOME_PAGE = `http://localhost:3000/`;

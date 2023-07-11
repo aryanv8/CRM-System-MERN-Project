@@ -27,7 +27,7 @@ import ViewProduct from "./pages/ViewProduct";
 // import admin pages
 import Dashboard from "./admin/Dashboard";
 import Customers from "./admin/Customers";
-import Insights from "./admin/Insights";
+import Insights from "./admin/InsightsFromDB";
 import FeedBackShow from "./admin/FeedBackShow";
 import ViewProf from "./admin/ViewProf";
 
