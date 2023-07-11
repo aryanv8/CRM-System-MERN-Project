@@ -52,7 +52,7 @@ function Signup() {
             if (res.status === 200) {
               alert("Registration Successful");
               // Navigate to login page
-              window.location.href = "/#/login";
+              window.location.href = `./#/login`;
             }
           })
           .catch((err) => alert(err));
