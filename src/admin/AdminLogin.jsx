@@ -48,7 +48,13 @@ function AdminLogin(props) {
             sec={sec}
             />
 
-        </form>
+            </form>
+            <div className="bg-dark-subtle border shadow container p-3 w-50 mb-4">
+                <h5 className='border-bottom pb-2'>Default Credentials of admin for testing purposes</h5>
+                <p>Username: CRMadmin</p>
+                <p>Password: admin@CRM.123</p>
+                <p>Security Pin: 9080</p>
+            </div>
 
         <ToastContainer />
     </div>

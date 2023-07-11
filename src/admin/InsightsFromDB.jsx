@@ -4,6 +4,7 @@ import Chart from "react-apexcharts";
 import Axios from "axios";
 
 import { ADMIN_SERVER } from "../constants";
+import ReactApexChart from "react-apexcharts";
 
 function Insights() {
   const [data, setData] = useState(null); // Initialize data as null
@@ -206,13 +207,15 @@ function Insights() {
     <div className="container-fluid insights">
       <h1 className="mt-3 display-5 text-white mb-4">Insights</h1>
       <div className="text-end mb-5">
-        <div className="btn btn-outline-warning" onClick={handleUpdateInsights}>Update Insights</div>
+        <div className="btn btn-outline-warning" onClick={handleUpdateInsights}>
+          Update Insights
+        </div>
       </div>
       <div className="row">
         <div className="col-sm-12 col-md-4 gender mx-auto">
           <h4 className="pt-2 pl-5">Gender</h4>
           {data && (
-            <Chart
+            <ReactApexChart
               options={{
                 chart: {
                   height: 390,
@@ -250,7 +253,7 @@ function Insights() {
                     return (
                       seriesName +
                       ":  " +
-                      opts.w.globals.series[opts.seriesIndex]
+                      opts.w.globals.series[opts.seriesIndex] + "%"
                     );
                   },
                   itemMargin: { vertical: 3 },
@@ -264,7 +267,14 @@ function Insights() {
                   },
                 ],
               }}
-              series={[data.maleCount, data.femaleCount, data.otherCount]}
+              series={[
+                ((data.maleCount * 100) /
+                  (data.maleCount + data.femaleCount + data.otherCount)).toFixed(1),
+                ((data.femaleCount * 100) /
+                  (data.maleCount + data.femaleCount + data.otherCount)).toFixed(1),
+                ((data.otherCount * 100) /
+                  (data.maleCount + data.femaleCount + data.otherCount)).toFixed(1),
+              ]}
               type="radialBar"
             />
           )}

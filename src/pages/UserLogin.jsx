@@ -39,22 +39,23 @@ function UserLogin() {
   };
 
   return (
-    <div>
+    <div className="" style={{minHeight:'80vh'}}>
       <form onSubmit={handleSubmit}>
         <Login
           getState={getState}
           heading="User"
           forgetPassword={
-            <div className="ml-5 mt-3">
-              <Link to="/forgotpwd">Forgot Password</Link>
+            <div className="mt-3 text-end">
+              <Link className="m-0" to="/forgotpwd">Forgot Password</Link>
             </div>
           }
           signUp={
-            <div className="ml-1">
-              <Link to="/signup">New User</Link>
+            <div className="ml-1 text-end">
+              <Link className="m-0" to="/signup">New User</Link>
             </div>
           }
         />
+      <Link className="m-3" to="/admin-login">Admin Login</Link>
       </form>
     </div>
   );
